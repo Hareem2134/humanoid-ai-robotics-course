@@ -1,0 +1,84 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot API for Physical AI & Humanoid Robotics Textbook
+  version: 1.0.0
+  description: API for interacting with the RAG chatbot embedded in the Physical AI & Humanoid Robotics Textbook.
+servers:
+  - url: /api/v1
+    description: Relative path for the API
+paths:
+  /chat/query:
+    post:
+      summary: Ask a general question about the textbook content.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: The user's question about the textbook content.
+      responses:
+        '200':
+          description: Successful response with the chatbot's answer and references.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                    description: The chatbot's generated answer.
+                  references:
+                    type: array
+                    items:
+                      type: string
+                    description: List of URLs or identifiers for relevant sections in the textbook.
+        '400':
+          description: Invalid request.
+        '500':
+          description: Internal server error.
+
+  /chat/query_selection:
+    post:
+      summary: Ask a question based on user-selected text from the textbook.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+                - selected_text
+              properties:
+                query:
+                  type: string
+                  description: The user's question related to the selected text.
+                selected_text:
+                  type: string
+                  description: The text selected by the user from the textbook, providing context.
+      responses:
+        '200':
+          description: Successful response with the chatbot's answer and references.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                    description: The chatbot's generated answer, contextualized by the selected text.
+                  references:
+                    type: array
+                    items:
+                      type: string
+                    description: List of URLs or identifiers for relevant sections in the textbook.
+        '400':
+          description: Invalid request (e.g., missing selected_text).
+        '500':
+          description: Internal server error.
