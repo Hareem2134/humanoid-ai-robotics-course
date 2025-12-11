@@ -22,10 +22,10 @@
 **Purpose**: Project initialization and basic structure
 
 - [x] T001 Create the monorepo directory structure: `frontend/` and `backend/`
-- [ ] T002 [P] Initialize a Docusaurus v3 project in `frontend/docusaurus-site/`
-- [ ] T003 [P] Initialize a Python project with a virtual environment in `backend/`
-- [ ] T004 [P] Create a basic FastAPI application structure in `backend/src/`
-- [ ] T005 [P] Configure linting and formatting tools (e.g., ESLint, Prettier for frontend; Black, Ruff for backend)
+- [x] T002 [P] Initialize a Docusaurus v3 project in `frontend/docusaurus-site/`
+- [x] T003 [P] Initialize a Python project with a virtual environment in `backend/`
+- [x] T004 [P] Create a basic FastAPI application structure in `backend/src/`
+- [x] T005 [P] Configure linting and formatting tools (e.g., ESLint, Prettier for frontend; Black, Ruff for backend)
 
 ---
 
@@ -35,12 +35,12 @@
 
 **⚠️ CRITICAL**: No chatbot work can begin until this phase is complete.
 
-- [ ] T006 Create `backend/requirements.txt` with initial dependencies: `fastapi`, `uvicorn`, `python-dotenv`, `llama-index`, `qdrant-client`, `psycopg2-binary`, `openai`
-- [ ] T007 Create `.env.example` file in `backend/` with placeholders for `OPENAI_API_KEY`, `NEON_DATABASE_URL`, `QDRANT_API_KEY`, `QDRANT_URL`
-- [ ] T008 [P] Implement a module to connect to the Neon Postgres database in `backend/src/core/database.py`
-- [ ] T009 [P] Implement a module to initialize the Qdrant client in `backend/src/core/qdrant.py`
-- [ ] T010 [P] Implement a module to initialize the OpenAI client in `backend/src/core/openai.py`
-- [ ] T011 Create the data ingestion script in `backend/scripts/ingest_data.py` to read markdown files, chunk content, generate embeddings, and store in Qdrant and Neon.
+- [x] T006 Create `backend/requirements.txt` with initial dependencies: `fastapi`, `uvicorn`, `python-dotenv`, `llama-index`, `qdrant-client`, `psycopg2-binary`, `openai`
+- [x] T007 Create `.env.example` file in `backend/` with placeholders for `OPENAI_API_KEY`, `NEON_DATABASE_URL`, `QDRANT_API_KEY`, `QDRANT_URL`
+- [x] T008 [P] Implement a module to connect to the Neon Postgres database in `backend/src/core/database.py`
+- [x] T009 [P] Implement a module to initialize the Qdrant client in `backend/src/core/qdrant.py`
+- [x] T010 [P] Implement a module to initialize the OpenAI client in `backend/src/core/openai.py`
+- [x] T011 Create the data ingestion script in `backend/scripts/ingest_data.py` to read markdown files, chunk content, generate embeddings, and store in Qdrant and Neon.
 
 **Checkpoint**: Foundation ready - user story implementation can now begin.
 
@@ -54,7 +54,7 @@
 
 ### Implementation for User Story 1 & 2
 
-- [ ] T012 [US1] Configure `frontend/docusaurus-site/docusaurus.config.js` with the textbook title, description, and navigation structure.
+- [x] T012 [US1] Configure `frontend/docusaurus-site/docusaurus.config.js` with the textbook title, description, and navigation structure.
 - [ ] T013 [US1] Create placeholder markdown files for each module and section of the textbook in `frontend/docusaurus-site/docs/`.
 - [ ] T014 [US2] Populate the placeholder markdown files with the actual course content.
 - [ ] T015 [US1] Set up a GitHub Actions workflow in `.github/workflows/deploy-docusaurus.yml` to build and deploy the Docusaurus site to GitHub Pages on push to the main branch.
