@@ -67,7 +67,7 @@ const config: Config = {
     ],
   ],
   plugins: [
-    './plugins/chatbot-plugin',
+    // './plugins/chatbot-plugin',
   ],
 
   themeConfig: {
@@ -85,7 +85,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'defaultSidebar',
           position: 'left',
           label: 'Tutorial',
         },

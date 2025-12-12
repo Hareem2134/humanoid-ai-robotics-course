@@ -68,9 +68,7 @@ export default {
       }
     ]
   ],
-  "plugins": [
-    "./plugins/chatbot-plugin"
-  ],
+  "plugins": [],
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
     "colorMode": {
@@ -87,7 +85,7 @@ export default {
       "items": [
         {
           "type": "docSidebar",
-          "sidebarId": "tutorialSidebar",
+          "sidebarId": "defaultSidebar",
           "position": "left",
           "label": "Tutorial"
         },
