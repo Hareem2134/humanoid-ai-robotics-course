@@ -1,7 +1,7 @@
 {
   "id": "why-physical-ai-matters/introduction",
   "title": "Why Physical AI Matters",
-  "description": "This is a placeholder for the introduction to why Physical AI matters.",
+  "description": "Humanoid robots are poised to excel in our human-centered world because they share our physical form and can be trained with abundant data from interacting in human environments. This represents a significant transition from AI models confined to digital environments to embodied intelligence that operates in physical space.",
   "source": "@site/docs/05-why-physical-ai-matters/01-introduction.md",
   "sourceDirName": "05-why-physical-ai-matters",
   "slug": "/why-physical-ai-matters/introduction",
@@ -13,9 +13,9 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {},
-  "sidebar": "tutorialSidebar",
+  "sidebar": "defaultSidebar",
   "previous": {
-    "title": "Introduction to VLA",
+    "title": "Module 4: Vision-Language-Action (VLA)",
     "permalink": "/humanoid-ai-robotics-course/docs/vla/introduction"
   },
   "next": {

@@ -1,7 +1,7 @@
 {
   "id": "weekly-breakdown/introduction",
   "title": "Weekly Breakdown",
-  "description": "This is a placeholder for the weekly breakdown.",
+  "description": "Weeks 1-2: Introduction to Physical AI*",
   "source": "@site/docs/07-weekly-breakdown/01-introduction.md",
   "sourceDirName": "07-weekly-breakdown",
   "slug": "/weekly-breakdown/introduction",
@@ -13,7 +13,7 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {},
-  "sidebar": "tutorialSidebar",
+  "sidebar": "defaultSidebar",
   "previous": {
     "title": "Learning Outcomes",
     "permalink": "/humanoid-ai-robotics-course/docs/learning-outcomes/introduction"

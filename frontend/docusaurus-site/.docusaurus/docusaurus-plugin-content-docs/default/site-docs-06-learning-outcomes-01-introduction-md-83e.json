@@ -1,7 +1,7 @@
 {
   "id": "learning-outcomes/introduction",
   "title": "Learning Outcomes",
-  "description": "This is a placeholder for the learning outcomes.",
+  "description": "*   Understand Physical AI principles and embodied intelligence",
   "source": "@site/docs/06-learning-outcomes/01-introduction.md",
   "sourceDirName": "06-learning-outcomes",
   "slug": "/learning-outcomes/introduction",
@@ -13,7 +13,7 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {},
-  "sidebar": "tutorialSidebar",
+  "sidebar": "defaultSidebar",
   "previous": {
     "title": "Why Physical AI Matters",
     "permalink": "/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction"

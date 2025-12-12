@@ -1,7 +1,7 @@
 {
   "id": "vla/introduction",
-  "title": "Introduction to VLA",
-  "description": "This is a placeholder for the introduction to VLA.",
+  "title": "Module 4: Vision-Language-Action (VLA)",
+  "description": "Focus: The convergence of LLMs and Robotics.",
   "source": "@site/docs/04-vla/01-introduction.md",
   "sourceDirName": "04-vla",
   "slug": "/vla/introduction",
@@ -13,10 +13,10 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {},
-  "sidebar": "tutorialSidebar",
+  "sidebar": "defaultSidebar",
   "previous": {
-    "title": "Translate your site",
-    "permalink": "/humanoid-ai-robotics-course/docs/tutorial-extras/translate-your-site"
+    "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac™)",
+    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction"
   },
   "next": {
     "title": "Why Physical AI Matters",

@@ -1,7 +1,7 @@
 {
   "id": "nvidia-isaac/introduction",
-  "title": "Introduction to NVIDIA Isaac™",
-  "description": "This is a placeholder for the introduction to NVIDIA Isaac™.",
+  "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac™)",
+  "description": "Focus: Advanced perception and training.",
   "source": "@site/docs/03-nvidia-isaac/01-introduction.md",
   "sourceDirName": "03-nvidia-isaac",
   "slug": "/nvidia-isaac/introduction",
@@ -13,13 +13,13 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {},
-  "sidebar": "tutorialSidebar",
+  "sidebar": "defaultSidebar",
   "previous": {
-    "title": "Congratulations!",
-    "permalink": "/humanoid-ai-robotics-course/docs/tutorial-basics/congratulations"
+    "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+    "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction"
   },
   "next": {
-    "title": "Tutorial - Extras",
-    "permalink": "/humanoid-ai-robotics-course/docs/category/tutorial---extras"
+    "title": "Module 4: Vision-Language-Action (VLA)",
+    "permalink": "/humanoid-ai-robotics-course/docs/vla/introduction"
   }
 }

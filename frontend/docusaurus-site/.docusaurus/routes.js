@@ -3,222 +3,111 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/humanoid-ai-robotics-course/blog',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog', 'bb4'),
+    path: '/humanoid-ai-robotics-course/__docusaurus/debug',
+    component: ComponentCreator('/humanoid-ai-robotics-course/__docusaurus/debug', '6c1'),
     exact: true
   },
   {
-    path: '/humanoid-ai-robotics-course/blog/archive',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/archive', 'e13'),
+    path: '/humanoid-ai-robotics-course/__docusaurus/debug/config',
+    component: ComponentCreator('/humanoid-ai-robotics-course/__docusaurus/debug/config', 'b9f'),
     exact: true
   },
   {
-    path: '/humanoid-ai-robotics-course/blog/authors',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/authors', '478'),
+    path: '/humanoid-ai-robotics-course/__docusaurus/debug/content',
+    component: ComponentCreator('/humanoid-ai-robotics-course/__docusaurus/debug/content', '8ce'),
     exact: true
   },
   {
-    path: '/humanoid-ai-robotics-course/blog/authors/all-sebastien-lorber-articles',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/authors/all-sebastien-lorber-articles', 'ae1'),
+    path: '/humanoid-ai-robotics-course/__docusaurus/debug/globalData',
+    component: ComponentCreator('/humanoid-ai-robotics-course/__docusaurus/debug/globalData', '838'),
     exact: true
   },
   {
-    path: '/humanoid-ai-robotics-course/blog/authors/yangshun',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/authors/yangshun', '5ed'),
+    path: '/humanoid-ai-robotics-course/__docusaurus/debug/metadata',
+    component: ComponentCreator('/humanoid-ai-robotics-course/__docusaurus/debug/metadata', 'e63'),
     exact: true
   },
   {
-    path: '/humanoid-ai-robotics-course/blog/first-blog-post',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/first-blog-post', '98e'),
+    path: '/humanoid-ai-robotics-course/__docusaurus/debug/registry',
+    component: ComponentCreator('/humanoid-ai-robotics-course/__docusaurus/debug/registry', 'f11'),
     exact: true
   },
   {
-    path: '/humanoid-ai-robotics-course/blog/long-blog-post',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/long-blog-post', 'e08'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/blog/mdx-blog-post',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/mdx-blog-post', 'ffe'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/blog/tags',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/tags', 'ded'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/blog/tags/docusaurus',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/tags/docusaurus', 'd5b'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/blog/tags/facebook',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/tags/facebook', '31e'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/blog/tags/hello',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/tags/hello', '36f'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/blog/tags/hola',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/tags/hola', '284'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/blog/welcome',
-    component: ComponentCreator('/humanoid-ai-robotics-course/blog/welcome', '2bf'),
-    exact: true
-  },
-  {
-    path: '/humanoid-ai-robotics-course/markdown-page',
-    component: ComponentCreator('/humanoid-ai-robotics-course/markdown-page', 'b35'),
+    path: '/humanoid-ai-robotics-course/__docusaurus/debug/routes',
+    component: ComponentCreator('/humanoid-ai-robotics-course/__docusaurus/debug/routes', '9fb'),
     exact: true
   },
   {
     path: '/humanoid-ai-robotics-course/docs',
-    component: ComponentCreator('/humanoid-ai-robotics-course/docs', '009'),
+    component: ComponentCreator('/humanoid-ai-robotics-course/docs', '468'),
     routes: [
       {
         path: '/humanoid-ai-robotics-course/docs',
-        component: ComponentCreator('/humanoid-ai-robotics-course/docs', '70c'),
+        component: ComponentCreator('/humanoid-ai-robotics-course/docs', 'dbd'),
         routes: [
           {
             path: '/humanoid-ai-robotics-course/docs',
-            component: ComponentCreator('/humanoid-ai-robotics-course/docs', 'aa3'),
+            component: ComponentCreator('/humanoid-ai-robotics-course/docs', '3f4'),
             routes: [
               {
                 path: '/humanoid-ai-robotics-course/docs/assessments/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/assessments/introduction', 'd7d'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/assessments/introduction', '05e'),
                 exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/category/tutorial---basics',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/category/tutorial---basics', '36d'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/category/tutorial---extras',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/category/tutorial---extras', 'b04'),
-                exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction', 'b96'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction', 'e46'),
                 exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/hardware-requirements/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/hardware-requirements/introduction', '795'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/hardware-requirements/introduction', '661'),
                 exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/intro',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/intro', '7eb'),
-                exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/learning-outcomes/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/learning-outcomes/introduction', 'ab4'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/learning-outcomes/introduction', 'dcf'),
                 exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction', 'f8c'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction', 'be6'),
                 exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/ros-2/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/ros-2/introduction', '5c9'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/ros-2/introduction', '311'),
                 exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-basics/congratulations',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-basics/congratulations', '277'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-blog-post',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-blog-post', 'c46'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-document',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-document', '5d1'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-page',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-page', '49b'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-basics/deploy-your-site',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-basics/deploy-your-site', '3b6'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-basics/markdown-features',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-basics/markdown-features', '6c7'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-extras/manage-docs-versions',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-extras/manage-docs-versions', '36d'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/humanoid-ai-robotics-course/docs/tutorial-extras/translate-your-site',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/tutorial-extras/translate-your-site', '73e'),
-                exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/vla/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/vla/introduction', 'dd0'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/vla/introduction', 'c11'),
                 exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction', '6f8'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction', '41f'),
                 exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               },
               {
                 path: '/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction', 'e19'),
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction', 'f39'),
                 exact: true,
-                sidebar: "tutorialSidebar"
+                sidebar: "defaultSidebar"
               }
             ]
           }
         ]
       }
     ]
-  },
-  {
-    path: '/humanoid-ai-robotics-course/',
-    component: ComponentCreator('/humanoid-ai-robotics-course/', '175'),
-    exact: true
   },
   {
     path: '*',

@@ -1,7 +1,7 @@
 {
   "id": "gazebo-and-unity/introduction",
-  "title": "Introduction to Gazebo & Unity",
-  "description": "This is a placeholder for the introduction to Gazebo & Unity.",
+  "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+  "description": "Focus: Physics simulation and environment building.",
   "source": "@site/docs/02-gazebo-and-unity/01-introduction.md",
   "sourceDirName": "02-gazebo-and-unity",
   "slug": "/gazebo-and-unity/introduction",
@@ -13,13 +13,13 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {},
-  "sidebar": "tutorialSidebar",
+  "sidebar": "defaultSidebar",
   "previous": {
-    "title": "Tutorial Intro",
-    "permalink": "/humanoid-ai-robotics-course/docs/intro"
+    "title": "Module 1: The Robotic Nervous System (ROS 2)",
+    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/introduction"
   },
   "next": {
-    "title": "Tutorial - Basics",
-    "permalink": "/humanoid-ai-robotics-course/docs/category/tutorial---basics"
+    "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac™)",
+    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction"
   }
 }

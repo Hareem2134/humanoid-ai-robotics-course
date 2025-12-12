@@ -46,7 +46,6 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "./sidebars.ts",
           "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/"
         },
         "blog": {
