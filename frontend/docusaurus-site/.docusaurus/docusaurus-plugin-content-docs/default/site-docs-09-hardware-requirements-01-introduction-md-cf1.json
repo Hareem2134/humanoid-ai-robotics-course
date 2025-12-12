@@ -1,0 +1,21 @@
+{
+  "id": "hardware-requirements/introduction",
+  "title": "Hardware Requirements",
+  "description": "This is a placeholder for the hardware requirements.",
+  "source": "@site/docs/09-hardware-requirements/01-introduction.md",
+  "sourceDirName": "09-hardware-requirements",
+  "slug": "/hardware-requirements/introduction",
+  "permalink": "/humanoid-ai-robotics-course/docs/hardware-requirements/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/09-hardware-requirements/01-introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Assessments",
+    "permalink": "/humanoid-ai-robotics-course/docs/assessments/introduction"
+  }
+}

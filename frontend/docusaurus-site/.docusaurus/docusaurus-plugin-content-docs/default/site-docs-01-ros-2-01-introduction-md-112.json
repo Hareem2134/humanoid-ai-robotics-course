@@ -1,0 +1,21 @@
+{
+  "id": "ros-2/introduction",
+  "title": "Introduction to ROS 2",
+  "description": "This is a placeholder for the introduction to ROS 2.",
+  "source": "@site/docs/01-ros-2/01-introduction.md",
+  "sourceDirName": "01-ros-2",
+  "slug": "/ros-2/introduction",
+  "permalink": "/humanoid-ai-robotics-course/docs/ros-2/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/01-ros-2/01-introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Tutorial Intro",
+    "permalink": "/humanoid-ai-robotics-course/docs/intro"
+  }
+}

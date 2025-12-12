@@ -1,0 +1,25 @@
+{
+  "id": "nvidia-isaac/introduction",
+  "title": "Introduction to NVIDIA Isaac™",
+  "description": "This is a placeholder for the introduction to NVIDIA Isaac™.",
+  "source": "@site/docs/03-nvidia-isaac/01-introduction.md",
+  "sourceDirName": "03-nvidia-isaac",
+  "slug": "/nvidia-isaac/introduction",
+  "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/03-nvidia-isaac/01-introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Congratulations!",
+    "permalink": "/humanoid-ai-robotics-course/docs/tutorial-basics/congratulations"
+  },
+  "next": {
+    "title": "Tutorial - Extras",
+    "permalink": "/humanoid-ai-robotics-course/docs/category/tutorial---extras"
+  }
+}

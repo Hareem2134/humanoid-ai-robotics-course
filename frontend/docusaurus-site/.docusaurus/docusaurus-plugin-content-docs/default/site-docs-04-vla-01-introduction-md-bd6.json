@@ -1,0 +1,25 @@
+{
+  "id": "vla/introduction",
+  "title": "Introduction to VLA",
+  "description": "This is a placeholder for the introduction to VLA.",
+  "source": "@site/docs/04-vla/01-introduction.md",
+  "sourceDirName": "04-vla",
+  "slug": "/vla/introduction",
+  "permalink": "/humanoid-ai-robotics-course/docs/vla/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/04-vla/01-introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Translate your site",
+    "permalink": "/humanoid-ai-robotics-course/docs/tutorial-extras/translate-your-site"
+  },
+  "next": {
+    "title": "Why Physical AI Matters",
+    "permalink": "/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction"
+  }
+}

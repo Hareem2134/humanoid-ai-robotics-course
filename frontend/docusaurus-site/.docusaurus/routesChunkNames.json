@@ -1,0 +1,309 @@
+{
+  "/humanoid-ai-robotics-course/blog-bb4": {
+    "__comp": "a6aa9e1f",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "f4f34a3a"
+      },
+      {
+        "content": "8717b14a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "__props": "9e2cc5dd"
+  },
+  "/humanoid-ai-robotics-course/blog/archive-e13": {
+    "__comp": "9e4087bc",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "__props": "3ea6cf2d"
+  },
+  "/humanoid-ai-robotics-course/blog/authors-478": {
+    "__comp": "621db11d",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "__props": "7b610f1f"
+  },
+  "/humanoid-ai-robotics-course/blog/authors/all-sebastien-lorber-articles-ae1": {
+    "__comp": "33fc5bb8",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "f4f34a3a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "sidebar": "814f3328",
+    "__props": "252b9b6c"
+  },
+  "/humanoid-ai-robotics-course/blog/authors/yangshun-5ed": {
+    "__comp": "33fc5bb8",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "8717b14a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "sidebar": "814f3328",
+    "__props": "ff883aa0"
+  },
+  "/humanoid-ai-robotics-course/blog/first-blog-post-98e": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "e273c56f"
+  },
+  "/humanoid-ai-robotics-course/blog/long-blog-post-e08": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "73664a40"
+  },
+  "/humanoid-ai-robotics-course/blog/mdx-blog-post-ffe": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "59362658"
+  },
+  "/humanoid-ai-robotics-course/blog/tags-ded": {
+    "__comp": "01a85c17",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "__props": "c1a6f5b4"
+  },
+  "/humanoid-ai-robotics-course/blog/tags/docusaurus-d5b": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "f4f34a3a"
+      },
+      {
+        "content": "8717b14a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "__props": "158b7128"
+  },
+  "/humanoid-ai-robotics-course/blog/tags/facebook-31e": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      }
+    ],
+    "__props": "b9e43164"
+  },
+  "/humanoid-ai-robotics-course/blog/tags/hello-36f": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "8717b14a"
+      }
+    ],
+    "__props": "e00ce55c"
+  },
+  "/humanoid-ai-robotics-course/blog/tags/hola-284": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "__props": "f6bf7710"
+  },
+  "/humanoid-ai-robotics-course/blog/welcome-2bf": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "d9f32620"
+  },
+  "/humanoid-ai-robotics-course/markdown-page-b35": {
+    "__comp": "1f391b9e",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "content": "393be207"
+  },
+  "/humanoid-ai-robotics-course/docs-009": {
+    "__comp": "5e95c892",
+    "__context": {
+      "plugin": "aba21aa0"
+    }
+  },
+  "/humanoid-ai-robotics-course/docs-70c": {
+    "__comp": "a7bd4aaa",
+    "__props": "cdf63606"
+  },
+  "/humanoid-ai-robotics-course/docs-aa3": {
+    "__comp": "a94703ab"
+  },
+  "/humanoid-ai-robotics-course/docs/assessments/introduction-d7d": {
+    "__comp": "17896441",
+    "content": "42b7bd84"
+  },
+  "/humanoid-ai-robotics-course/docs/category/tutorial---basics-36d": {
+    "__comp": "14eb3368",
+    "__props": "26a51c14"
+  },
+  "/humanoid-ai-robotics-course/docs/category/tutorial---extras-b04": {
+    "__comp": "14eb3368",
+    "__props": "7554e374"
+  },
+  "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction-b96": {
+    "__comp": "17896441",
+    "content": "8e256430"
+  },
+  "/humanoid-ai-robotics-course/docs/hardware-requirements/introduction-795": {
+    "__comp": "17896441",
+    "content": "cf13effd"
+  },
+  "/humanoid-ai-robotics-course/docs/intro-7eb": {
+    "__comp": "17896441",
+    "content": "0e384e19"
+  },
+  "/humanoid-ai-robotics-course/docs/learning-outcomes/introduction-ab4": {
+    "__comp": "17896441",
+    "content": "83e059e2"
+  },
+  "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction-f8c": {
+    "__comp": "17896441",
+    "content": "c30c8e55"
+  },
+  "/humanoid-ai-robotics-course/docs/ros-2/introduction-5c9": {
+    "__comp": "17896441",
+    "content": "112ea598"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-basics/congratulations-277": {
+    "__comp": "17896441",
+    "content": "822bd8ab"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-blog-post-c46": {
+    "__comp": "17896441",
+    "content": "533a09ca"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-document-5d1": {
+    "__comp": "17896441",
+    "content": "1e4232ab"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-page-49b": {
+    "__comp": "17896441",
+    "content": "5c868d36"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-basics/deploy-your-site-3b6": {
+    "__comp": "17896441",
+    "content": "f55d3e7a"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-basics/markdown-features-6c7": {
+    "__comp": "17896441",
+    "content": "18c41134"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-extras/manage-docs-versions-36d": {
+    "__comp": "17896441",
+    "content": "dff1c289"
+  },
+  "/humanoid-ai-robotics-course/docs/tutorial-extras/translate-your-site-73e": {
+    "__comp": "17896441",
+    "content": "e44a2883"
+  },
+  "/humanoid-ai-robotics-course/docs/vla/introduction-dd0": {
+    "__comp": "17896441",
+    "content": "bd60ce96"
+  },
+  "/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction-6f8": {
+    "__comp": "17896441",
+    "content": "a6f2c114"
+  },
+  "/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction-e19": {
+    "__comp": "17896441",
+    "content": "d0136e4b"
+  },
+  "/humanoid-ai-robotics-course/-175": {
+    "__comp": "1df93b7f",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  }
+}

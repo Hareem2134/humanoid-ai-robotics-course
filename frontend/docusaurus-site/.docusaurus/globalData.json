@@ -1,0 +1,128 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/humanoid-ai-robotics-course/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/humanoid-ai-robotics-course/docs",
+          "mainDocId": "ros-2/introduction",
+          "docs": [
+            {
+              "id": "assessments/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/assessments/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "gazebo-and-unity/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "hardware-requirements/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/hardware-requirements/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/humanoid-ai-robotics-course/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "learning-outcomes/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/learning-outcomes/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "nvidia-isaac/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "ros-2/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/ros-2/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/congratulations",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-basics/congratulations",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/create-a-blog-post",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-blog-post",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/create-a-document",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-document",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/create-a-page",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-basics/create-a-page",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/deploy-your-site",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-basics/deploy-your-site",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/markdown-features",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-basics/markdown-features",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-extras/manage-docs-versions",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-extras/manage-docs-versions",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-extras/translate-your-site",
+              "path": "/humanoid-ai-robotics-course/docs/tutorial-extras/translate-your-site",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "vla/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/vla/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "weekly-breakdown/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "why-physical-ai-matters/introduction",
+              "path": "/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/tutorial---basics",
+              "path": "/humanoid-ai-robotics-course/docs/category/tutorial---basics",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/tutorial---extras",
+              "path": "/humanoid-ai-robotics-course/docs/category/tutorial---extras",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/humanoid-ai-robotics-course/docs/ros-2/introduction",
+                "label": "ros-2/introduction"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

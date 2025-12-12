@@ -1,0 +1,27 @@
+{
+  "id": "intro",
+  "title": "Tutorial Intro",
+  "description": "Let's discover Docusaurus in less than 5 minutes.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/humanoid-ai-robotics-course/docs/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/intro.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction to ROS 2",
+    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/introduction"
+  },
+  "next": {
+    "title": "Introduction to Gazebo & Unity",
+    "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction"
+  }
+}

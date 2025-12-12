@@ -1,0 +1,25 @@
+{
+  "id": "gazebo-and-unity/introduction",
+  "title": "Introduction to Gazebo & Unity",
+  "description": "This is a placeholder for the introduction to Gazebo & Unity.",
+  "source": "@site/docs/02-gazebo-and-unity/01-introduction.md",
+  "sourceDirName": "02-gazebo-and-unity",
+  "slug": "/gazebo-and-unity/introduction",
+  "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/02-gazebo-and-unity/01-introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Tutorial Intro",
+    "permalink": "/humanoid-ai-robotics-course/docs/intro"
+  },
+  "next": {
+    "title": "Tutorial - Basics",
+    "permalink": "/humanoid-ai-robotics-course/docs/category/tutorial---basics"
+  }
+}
