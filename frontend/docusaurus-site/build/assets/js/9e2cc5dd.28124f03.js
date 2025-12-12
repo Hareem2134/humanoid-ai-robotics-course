@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkdocusaurus_site=globalThis.webpackChunkdocusaurus_site||[]).push([[2196],{1225:o=>{o.exports=JSON.parse('{"metadata":{"permalink":"/humanoid-ai-robotics-course/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
