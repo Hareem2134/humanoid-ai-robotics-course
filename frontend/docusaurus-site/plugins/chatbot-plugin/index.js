@@ -1,8 +1,10 @@
+const path = require('path');
+
 module.exports = function (context, options) {
   return {
     name: 'docusaurus-chatbot-plugin',
-    getClientModules() {
-      return [require.resolve('./root.js')];
+    getThemePath() {
+      return path.resolve(__dirname, './theme');
     },
   };
 };

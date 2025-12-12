@@ -22,3 +22,29 @@ test('chatbot is visible and can be toggled', async ({ page }) => {
   // Expect the chatbot container to be hidden again
   await expect(chatbotContainer).toBeHidden();
 });
+
+test('chatbot can answer a question', async ({ page }) => {
+  // Mock the API response
+  await page.route('/api/v1/chat/query', async route => {
+    const json = {
+      answer: 'This is a test answer.',
+      references: ['ref1', 'ref2'],
+    };
+    await route.fulfill({ json });
+  });
+
+  // Navigate to the Docusaurus site
+  await page.goto('http://localhost:3000');
+
+  // Open the chatbot
+  const toggleButton = page.getByRole('button', { name: 'Open Chat' });
+  await toggleButton.click();
+
+  // Type a question and send
+  await page.getByPlaceholder('Ask a question...').fill('What is AI?');
+  await page.getByRole('button', { name: 'Send' }).click();
+
+  // Expect the answer to be visible
+  const answer = page.getByText('This is a test answer.');
+  await expect(answer).toBeVisible();
+});

@@ -56,7 +56,7 @@
 
 - [x] T012 [US1] Configure `frontend/docusaurus-site/docusaurus.config.js` with the textbook title, description, and navigation structure.
 - [x] T013 [US1] Create placeholder markdown files for each module and section of the textbook in `frontend/docusaurus-site/docs/`.
-- [x] T014 [US2] Populate the placeholder markdown files with the actual course content.
+- [ ] T014 [US2] Populate the placeholder markdown files with the actual course content.
 - [x] T015 [US1] Set up a GitHub Actions workflow in `.github/workflows/deploy-docusaurus.yml` to build and deploy the Docusaurus site to GitHub Pages on push to the main branch.
 
 **Checkpoint**: At this point, the textbook should be published and accessible online.
@@ -106,7 +106,7 @@
 - [x] T026 [P] Implement robust error handling for both the frontend and backend.
 - [x] T027 [P] Write E2E tests for the chatbot functionality using Playwright or Cypress in `frontend/tests/`.
 - [x] T028 [P] Add documentation for the backend API in the form of docstrings and comments.
-- [x] T029 Run `quickstart.md` validation to ensure the setup instructions are accurate.
+- [x] T029 [P] Run `quickstart.md` validation to ensure the setup instructions are accurate.
 
 ---
 
