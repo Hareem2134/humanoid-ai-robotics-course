@@ -1,0 +1,25 @@
+{
+  "id": "assessments/introduction",
+  "title": "Assessments",
+  "description": "*   ROS 2 package development project",
+  "source": "@site/docs/08-assessments/01-introduction.md",
+  "sourceDirName": "08-assessments",
+  "slug": "/assessments/introduction",
+  "permalink": "/humanoid-ai-robotics-course/docs/assessments/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/08-assessments/01-introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Weekly Breakdown",
+    "permalink": "/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction"
+  },
+  "next": {
+    "title": "Hardware Requirements",
+    "permalink": "/humanoid-ai-robotics-course/docs/hardware-requirements/introduction"
+  }
+}

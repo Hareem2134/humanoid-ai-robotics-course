@@ -1,1 +1,24 @@
 /* Custom CSS goes here */
+
+:root {
+  --ifm-font-family-base: 'Inter', sans-serif;
+  --ifm-font-size-base: 110%;
+  --ifm-line-height-base: 1.6;
+}
+
+div[class*="prose"] > h1,
+div[class*="prose"] > h2,
+div[class*="prose"] > h3 {
+  font-weight: 700;
+}
+
+/* Code block styling */
+div[class*='codeBlockContainer'] {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] div[class*='codeBlockContainer'] {
+  border: 1px solid var(--ifm-color-emphasis-300);
+}

@@ -1,0 +1,27 @@
+{
+  "id": "nvidia-isaac/nav2",
+  "title": "Nav2 for Path Planning",
+  "description": "Nav2 is the second generation of the ROS Navigation Stack. It is a powerful and flexible navigation framework that can be used to control a robot as it moves from one location to another. Nav2 is highly configurable and can be used with a wide variety of robots, including differential drive robots, omnidirectional robots, and even bipedal humanoids.",
+  "source": "@site/docs/03-nvidia-isaac/03-nav2.md",
+  "sourceDirName": "03-nvidia-isaac",
+  "slug": "/nvidia-isaac/nav2",
+  "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/nav2",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/03-nvidia-isaac/03-nav2.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Nav2 for Path Planning"
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Visual SLAM",
+    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/visual-slam"
+  },
+  "next": {
+    "title": "Reinforcement Learning for Robotics",
+    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/reinforcement-learning"
+  }
+}

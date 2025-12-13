@@ -71,11 +71,11 @@
 
 ### Implementation for User Story 3
 
-- [x] T016 [US3] Implement the `/chat/query` endpoint in `backend/src/api/chat.py` as defined in the API contract.
-- [x] T017 [US3] Implement the RAG service in `backend/src/services/rag_service.py` to handle general queries, using LlamaIndex to retrieve context from Qdrant and generate an answer with OpenAI.
-- [x] T018 [US3] Create a React component for the chatbot UI in `frontend/docusaurus-site/src/components/Chatbot.js`.
-- [x] T019 [US3] Integrate the Chatbot component into the Docusaurus layout using swizzling, so it appears on all pages.
-- [x] T020 [US3] Implement the frontend logic in the Chatbot component to call the `/chat/query` backend endpoint and display the response.
+- [ ] T016 [US3] Implement the `/chat/query` endpoint in `backend/src/api/chat.py` as defined in the API contract.
+- [ ] T017 [US3] Implement the RAG service in `backend/src/services/rag_service.py` to handle general queries, using LlamaIndex to retrieve context from Qdrant and generate an answer with OpenAI.
+- [ ] T018 [US3] Create a React component for the chatbot UI in `frontend/docusaurus-site/src/components/Chatbot.js`.
+- [ ] T019 [US3] Integrate the Chatbot component into the Docusaurus layout using swizzling, so it appears on all pages.
+- [ ] T020 [US3] Implement the frontend logic in the Chatbot component to call the `/chat/query` backend endpoint and display the response.
 
 **Checkpoint**: At this point, the chatbot should be able to answer general questions about the textbook.
 
@@ -89,10 +89,10 @@
 
 ### Implementation for User Story 4
 
-- [x] T021 [US4] Implement the `/chat/query_selection` endpoint in `backend/src/api/chat.py` as defined in the API contract.
-- [x] T022 [US4] Extend the RAG service in `backend/src/services/rag_service.py` to handle queries with selected text, passing the selection as context to the LLM.
-- [x] T023 [US4] Extend the frontend Chatbot component in `frontend/docusaurus-site/src/components/Chatbot.js` to detect text selection on the page and provide an option to "Ask Chatbot about selection".
-- [x] T024 [US4] Implement the frontend logic to call the `/chat/query_selection` endpoint when a user asks a question about selected text.
+- [ ] T021 [US4] Implement the `/chat/query_selection` endpoint in `backend/src/api/chat.py` as defined in the API contract.
+- [ ] T022 [US4] Extend the RAG service in `backend/src/services/rag_service.py` to handle queries with selected text, passing the selection as context to the LLM.
+- [ ] T023 [US4] Extend the frontend Chatbot component in `frontend/docusaurus-site/src/components/Chatbot.js` to detect text selection on the page and provide an option to "Ask Chatbot about selection".
+- [ ] T024 [US4] Implement the frontend logic to call the `/chat/query_selection` endpoint when a user asks a question about selected text.
 
 **Checkpoint**: All user stories should now be independently functional.
 
@@ -102,11 +102,12 @@
 
 **Purpose**: Improvements that affect multiple user stories.
 
-- [x] T025 [P] Add comprehensive logging to the backend FastAPI application.
-- [x] T026 [P] Implement robust error handling for both the frontend and backend.
-- [x] T027 [P] Write E2E tests for the chatbot functionality using Playwright or Cypress in `frontend/tests/`.
-- [x] T028 [P] Add documentation for the backend API in the form of docstrings and comments.
-- [x] T029 [P] Run `quickstart.md` validation to ensure the setup instructions are accurate.
+- [ ] T025 [P] Add comprehensive logging to the backend FastAPI application.
+- [ ] T026 [P] Implement robust error handling for both the frontend and backend.
+- [ ] T027 [P] Write E2E tests for the chatbot functionality using Playwright or Cypress in `frontend/tests/`.
+- [ ] T028 [P] Add documentation for the backend API in the form of docstrings and comments.
+- [ ] T029 [P] Run `quickstart.md` validation to ensure the setup instructions are accurate.
+- [ ] T030 [US3] Re-enable the chatbot plugin in `frontend/docusaurus-site/docusaurus.config.ts`.
 
 ---
 

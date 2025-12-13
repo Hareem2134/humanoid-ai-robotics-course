@@ -2,7 +2,7 @@ import os
 from typing import List, Tuple
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Qdrant as LangchainQdrant
-from langchain.chains import RetrievalQA
+import langchain.chains
 from langchain.prompts import PromptTemplate
 from qdrant_client import QdrantClient
 from openai import OpenAI

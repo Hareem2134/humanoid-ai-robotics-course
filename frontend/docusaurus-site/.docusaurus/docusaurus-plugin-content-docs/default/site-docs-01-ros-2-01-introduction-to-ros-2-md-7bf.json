@@ -1,0 +1,27 @@
+{
+  "id": "ros-2/introduction-to-ros2",
+  "title": "Introduction to ROS 2",
+  "description": "The Robot Operating System (ROS) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms.",
+  "source": "@site/docs/01-ros-2/01-introduction-to-ros2.md",
+  "sourceDirName": "01-ros-2",
+  "slug": "/ros-2/introduction-to-ros2",
+  "permalink": "/humanoid-ai-robotics-course/docs/ros-2/introduction-to-ros2",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/01-ros-2/01-introduction-to-ros2.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Introduction to ROS 2"
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Hardware and Software Requirements",
+    "permalink": "/humanoid-ai-robotics-course/docs/introduction/requirements"
+  },
+  "next": {
+    "title": "ROS 2 Architecture",
+    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/ros2-architecture"
+  }
+}

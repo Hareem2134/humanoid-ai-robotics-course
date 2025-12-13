@@ -1,0 +1,27 @@
+{
+  "id": "gazebo-and-unity/introduction-to-simulation",
+  "title": "Introduction to Simulation",
+  "description": "Simulation is an indispensable tool in the field of robotics. It allows engineers, developers, and researchers to create a virtual representation of a robot and its environment, enabling them to test and validate their designs, algorithms, and software before deploying them on physical hardware.",
+  "source": "@site/docs/02-gazebo-and-unity/01-introduction-to-simulation.md",
+  "sourceDirName": "02-gazebo-and-unity",
+  "slug": "/gazebo-and-unity/introduction-to-simulation",
+  "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction-to-simulation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/02-gazebo-and-unity/01-introduction-to-simulation.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Introduction to Simulation"
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Understanding URDF",
+    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/urdf"
+  },
+  "next": {
+    "title": "Gazebo for Simulation",
+    "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/gazebo"
+  }
+}

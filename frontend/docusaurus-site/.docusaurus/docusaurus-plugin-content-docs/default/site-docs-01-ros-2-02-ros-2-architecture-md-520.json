@@ -1,0 +1,27 @@
+{
+  "id": "ros-2/ros2-architecture",
+  "title": "ROS 2 Architecture",
+  "description": "The architecture of ROS 2 is designed to be modular and scalable, allowing you to build complex robotic systems from a set of smaller, reusable components. The core of the ROS 2 architecture is the ROS 2 graph, which is a network of nodes that communicate with each other using topics, services, and actions.",
+  "source": "@site/docs/01-ros-2/02-ros2-architecture.md",
+  "sourceDirName": "01-ros-2",
+  "slug": "/ros-2/ros2-architecture",
+  "permalink": "/humanoid-ai-robotics-course/docs/ros-2/ros2-architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/01-ros-2/02-ros2-architecture.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "ROS 2 Architecture"
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Introduction to ROS 2",
+    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/introduction-to-ros2"
+  },
+  "next": {
+    "title": "ROS 2 Nodes, Topics, and Services",
+    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/ros2-nodes-topics-services"
+  }
+}

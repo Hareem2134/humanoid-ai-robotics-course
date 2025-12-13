@@ -1,0 +1,27 @@
+{
+  "id": "vla/introduction-to-vla",
+  "title": "Introduction to Vision-Language-Action (VLA) Models",
+  "description": "Vision-Language-Action (VLA) models represent a significant leap forward in the quest for truly intelligent and autonomous robots. These models are designed to bridge the gap between perception, language, and action, allowing a robot to understand its environment, reason about it, and take actions to achieve its goals.",
+  "source": "@site/docs/04-vla/01-introduction-to-vla.md",
+  "sourceDirName": "04-vla",
+  "slug": "/vla/introduction-to-vla",
+  "permalink": "/humanoid-ai-robotics-course/docs/vla/introduction-to-vla",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/04-vla/01-introduction-to-vla.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Introduction to Vision-Language-Action (VLA) Models"
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Reinforcement Learning for Robotics",
+    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/reinforcement-learning"
+  },
+  "next": {
+    "title": "Humanoid Kinematics and Manipulation",
+    "permalink": "/humanoid-ai-robotics-course/docs/vla/humanoid-kinematics"
+  }
+}

@@ -40,25 +40,11 @@ const config: Config = {
       'classic',
       {
         docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/haree/humanoid-ai-robotics-course/tree/main/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/haree/humanoid-ai-robotics-course/tree/main/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -67,7 +53,7 @@ const config: Config = {
     ],
   ],
   plugins: [
-    // './plugins/chatbot-plugin',
+    './plugins/chatbot-plugin',
   ],
 
   themeConfig: {
@@ -87,13 +73,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'defaultSidebar',
           position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/haree/humanoid-ai-robotics-course',
-          label: 'GitHub',
-          position: 'right',
+          label: 'Textbook',
         },
       ],
     },
@@ -104,8 +84,29 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Textbook',
+              to: '/docs/',
+            },
+          ],
+        },
+        {
+          title: 'Modules',
+          items: [
+            {
+              label: 'Module 1: ROS 2',
+              to: '/docs/01-ros-2/01-introduction-to-ros2',
+            },
+            {
+              label: 'Module 2: Digital Twins',
+              to: '/docs/02-gazebo-and-unity/01-introduction-to-simulation',
+            },
+            {
+              label: 'Module 3: NVIDIA Isaac',
+              to: '/docs/03-nvidia-isaac/01-introduction-to-isaac-sim',
+            },
+            {
+              label: 'Module 4: VLA & Humanoid Robotics',
+              to: '/docs/04-vla/01-introduction-to-vla',
             },
           ],
         },
@@ -130,12 +131,12 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Homepage',
+              to: '/',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/haree/humanoid-ai-robotics-course',
+              label: 'Glossary',
+              to: '/docs/05-glossary/01-glossary',
             },
           ],
         },

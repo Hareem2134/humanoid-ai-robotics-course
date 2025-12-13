@@ -1,0 +1,23 @@
+{
+  "id": "introduction/overview",
+  "title": "Overview",
+  "description": "Welcome to \"Physical AI & Humanoid Robotics: A Comprehensive Guide\". This book is designed to provide industry practitioners with a comprehensive understanding of humanoid robotics and physical AI.",
+  "source": "@site/docs/00-introduction/01-overview.md",
+  "sourceDirName": "00-introduction",
+  "slug": "/introduction/overview",
+  "permalink": "/humanoid-ai-robotics-course/docs/introduction/overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/00-introduction/01-overview.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Overview"
+  },
+  "sidebar": "defaultSidebar",
+  "next": {
+    "title": "Learning Outcomes",
+    "permalink": "/humanoid-ai-robotics-course/docs/introduction/learning-outcomes"
+  }
+}
