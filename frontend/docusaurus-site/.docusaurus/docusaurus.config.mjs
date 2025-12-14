@@ -55,9 +55,7 @@ export default {
       }
     ]
   ],
-  "plugins": [
-    "./plugins/chatbot-plugin"
-  ],
+  "plugins": [],
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
     "colorMode": {

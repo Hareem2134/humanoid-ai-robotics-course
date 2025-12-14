@@ -75,7 +75,7 @@ const modules = [
       {title: 'Introduction to VLA', link: '/docs/04-vla/01-introduction-to-vla'},
       {title: 'Humanoid Kinematics', link: '/docs/04-vla/02-humanoid-kinematics'},
       {title: 'Conversational AI', link: '/docs/04-vla/03-conversational-ai'},
-      {title: 'Capstone Project', link: '/docs/04-vla/04-capstone-project'},
+      {title: 'Capstone Project', link: '/docs/04-vla/04-capstone-.md'},
     ]
   },
 ];
@@ -118,6 +118,18 @@ function HomepageQuickLinks() {
               <li><Link to="/docs/05-glossary/01-glossary">Glossary</Link></li>
             </ul>
           </div>
+        </div>
+.        <div className="col col--4">
+.          <ul>
+.            <li><Link to="/docs/06-learning-outcomes">Learning Outcomes</Link></li>
+.            <li><Link to="/docs/07-weekly-breakdown">Weekly Breakdown</Link></li>
+.          </ul>
+.        </div>
+.        <div className="col col--4">
+.          <ul>
+.            <li><Link to="/docs/08-assessments">Assessments</Link></li>
+.            <li><Link to="/docs/09-hardware-requirements">Hardware</Link></li>
+.          </ul>
         </div>
       </div>
     </section>

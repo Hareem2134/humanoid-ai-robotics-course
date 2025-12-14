@@ -53,8 +53,12 @@ const config: Config = {
     ],
   ],
   plugins: [
-    './plugins/chatbot-plugin',
+    // './plugins/chatbot-plugin',
+    // './plugins/webpack-proxy',
+    // './plugins/ignore-sys-files-plugin',
   ],
+
+
 
   themeConfig: {
     // Replace with your project's social card

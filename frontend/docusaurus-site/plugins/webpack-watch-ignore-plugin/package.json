@@ -1,0 +1,6 @@
+{
+  "name": "webpack-watch-ignore-plugin",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A Docusaurus plugin to ignore system files like pagefile.sys from Webpack's watcher."
+}
