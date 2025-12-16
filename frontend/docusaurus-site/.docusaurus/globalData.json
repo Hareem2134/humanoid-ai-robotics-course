@@ -8,7 +8,7 @@
           "label": "Next",
           "isLast": true,
           "path": "/humanoid-ai-robotics-course/docs",
-          "mainDocId": "intro",
+          "mainDocId": "introduction/overview",
           "docs": [
             {
               "id": "assessments/introduction",
@@ -47,7 +47,7 @@
             },
             {
               "id": "intro",
-              "path": "/humanoid-ai-robotics-course/docs/",
+              "path": "/humanoid-ai-robotics-course/docs/intro",
               "sidebar": "defaultSidebar"
             },
             {

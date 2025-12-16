@@ -42,22 +42,18 @@
       "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debugb-38-c00"
     }
   },
-  "/humanoid-ai-robotics-course/docs-4d7": {
+  "/humanoid-ai-robotics-course/docs-d0d": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---humanoid-ai-robotics-course-docsaba-e31"
     }
   },
-  "/humanoid-ai-robotics-course/docs-fda": {
+  "/humanoid-ai-robotics-course/docs-484": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---humanoid-ai-robotics-course-docscdf-63b"
   },
-  "/humanoid-ai-robotics-course/docs-e28": {
+  "/humanoid-ai-robotics-course/docs-53a": {
     "__comp": "__comp---theme-doc-roota-94-67a"
-  },
-  "/humanoid-ai-robotics-course/docs/-06f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-0-e-3-abf"
   },
   "/humanoid-ai-robotics-course/docs/assessments/introduction-05e": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -86,6 +82,10 @@
   "/humanoid-ai-robotics-course/docs/hardware-requirements/introduction-661": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---humanoid-ai-robotics-course-docs-hardware-requirements-introductioncf-1-e3b"
+  },
+  "/humanoid-ai-robotics-course/docs/intro-90d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-ai-robotics-course-docs-intro-0-e-3-d1c"
   },
   "/humanoid-ai-robotics-course/docs/introduction/learning-outcomes-d26": {
     "__comp": "__comp---theme-doc-item-178-a40",

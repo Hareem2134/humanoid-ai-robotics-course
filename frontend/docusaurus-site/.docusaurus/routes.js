@@ -39,22 +39,16 @@ export default [
   },
   {
     path: '/humanoid-ai-robotics-course/docs',
-    component: ComponentCreator('/humanoid-ai-robotics-course/docs', '4d7'),
+    component: ComponentCreator('/humanoid-ai-robotics-course/docs', 'd0d'),
     routes: [
       {
         path: '/humanoid-ai-robotics-course/docs',
-        component: ComponentCreator('/humanoid-ai-robotics-course/docs', 'fda'),
+        component: ComponentCreator('/humanoid-ai-robotics-course/docs', '484'),
         routes: [
           {
             path: '/humanoid-ai-robotics-course/docs',
-            component: ComponentCreator('/humanoid-ai-robotics-course/docs', 'e28'),
+            component: ComponentCreator('/humanoid-ai-robotics-course/docs', '53a'),
             routes: [
-              {
-                path: '/humanoid-ai-robotics-course/docs/',
-                component: ComponentCreator('/humanoid-ai-robotics-course/docs/', '06f'),
-                exact: true,
-                sidebar: "defaultSidebar"
-              },
               {
                 path: '/humanoid-ai-robotics-course/docs/assessments/introduction',
                 component: ComponentCreator('/humanoid-ai-robotics-course/docs/assessments/introduction', '05e'),
@@ -94,6 +88,12 @@ export default [
               {
                 path: '/humanoid-ai-robotics-course/docs/hardware-requirements/introduction',
                 component: ComponentCreator('/humanoid-ai-robotics-course/docs/hardware-requirements/introduction', '661'),
+                exact: true,
+                sidebar: "defaultSidebar"
+              },
+              {
+                path: '/humanoid-ai-robotics-course/docs/intro',
+                component: ComponentCreator('/humanoid-ai-robotics-course/docs/intro', '90d'),
                 exact: true,
                 sidebar: "defaultSidebar"
               },
