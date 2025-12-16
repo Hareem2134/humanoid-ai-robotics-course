@@ -1,7 +1,6 @@
 ---
 id: intro
 title: Introduction
-slug: /
 ---
 
 Welcome to "Physical AI & Humanoid Robotics: A Comprehensive Guide". This book is designed to provide industry practitioners with a comprehensive understanding of humanoid robotics and physical AI.

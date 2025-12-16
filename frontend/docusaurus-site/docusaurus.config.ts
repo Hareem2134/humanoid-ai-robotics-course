@@ -8,6 +8,7 @@ const config: Config = {
   title: 'Physical AI & Humanoid Robotics Textbook',
   tagline: 'A comprehensive textbook on Physical AI & Humanoid Robotics',
   favicon: 'img/favicon.ico',
+  trailingSlash: true,
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
