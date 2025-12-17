@@ -33,7 +33,7 @@ export default {
   "baseUrl": "/",
   "organizationName": "haree",
   "projectName": "humanoid-ai-robotics-course",
-  "onBrokenLinks": "throw",
+  "onBrokenLinks": "warn",
   "i18n": {
     "defaultLocale": "en",
     "locales": [
@@ -88,7 +88,7 @@ export default {
           "items": [
             {
               "label": "Textbook",
-              "to": "/docs/"
+              "to": "docs/intro"
             }
           ]
         },
