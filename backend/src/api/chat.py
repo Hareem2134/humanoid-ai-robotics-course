@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 # Import your RAG service here (will be implemented in T017)
-from backend.src.services.rag_service import get_rag_response
+from ..services.rag_service import get_rag_response
 
 router = APIRouter(prefix="/chat", tags=["Chatbot"])
 

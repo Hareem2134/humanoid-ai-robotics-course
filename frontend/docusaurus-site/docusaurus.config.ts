@@ -54,7 +54,7 @@ const config: Config = {
     ],
   ],
   plugins: [
-    // './plugins/chatbot-plugin',
+    './plugins/chatbot-plugin',
     // './plugins/webpack-proxy',
   ],
 

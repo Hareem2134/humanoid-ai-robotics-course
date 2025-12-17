@@ -8,8 +8,8 @@ from qdrant_client import QdrantClient
 from openai import OpenAI
 
 # Assuming get_qdrant_client from core.qdrant and get_openai_client from core.openai
-from backend.src.core.qdrant import get_qdrant_client
-from backend.src.core.openai import get_openai_client
+from ..core.qdrant import get_qdrant_client
+from ..core.openai import get_openai_client
 
 def get_rag_chain(collection_name: str = "ai_robotics_textbook"):
     """
