@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkdocusaurus_site=globalThis.webpackChunkdocusaurus_site||[]).push([[5199],{566:s=>{s.exports=JSON.parse('{"tags":[{"label":"hello","permalink":"/humanoid-ai-robotics-course/blog/tags/hello","count":1},{"label":"docusaurus","permalink":"/humanoid-ai-robotics-course/blog/tags/docusaurus","count":1}]}')}}]);

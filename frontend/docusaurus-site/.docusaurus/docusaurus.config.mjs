@@ -7,6 +7,7 @@ export default {
   "title": "Physical AI & Humanoid Robotics Textbook",
   "tagline": "A comprehensive textbook on Physical AI & Humanoid Robotics",
   "favicon": "img/favicon.ico",
+  "trailingSlash": true,
   "future": {
     "v4": {
       "removeLegacyPostBuildHeadAttribute": true,
@@ -55,9 +56,7 @@ export default {
       }
     ]
   ],
-  "plugins": [
-    "./plugins/chatbot-plugin"
-  ],
+  "plugins": [],
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
     "colorMode": {
