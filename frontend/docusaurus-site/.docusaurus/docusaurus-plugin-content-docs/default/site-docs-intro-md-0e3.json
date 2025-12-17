@@ -5,7 +5,7 @@
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/intro",
-  "permalink": "/humanoid-ai-robotics-course/docs/intro",
+  "permalink": "/docs/intro",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/intro.md",
@@ -18,6 +18,6 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Hardware Requirements",
-    "permalink": "/humanoid-ai-robotics-course/docs/hardware-requirements/introduction"
+    "permalink": "/docs/hardware-requirements/introduction"
   }
 }

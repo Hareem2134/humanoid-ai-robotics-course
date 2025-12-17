@@ -5,7 +5,7 @@
   "source": "@site/docs/07-weekly-breakdown/01-introduction.md",
   "sourceDirName": "07-weekly-breakdown",
   "slug": "/weekly-breakdown/introduction",
-  "permalink": "/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction",
+  "permalink": "/docs/weekly-breakdown/introduction",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/07-weekly-breakdown/01-introduction.md",
@@ -16,10 +16,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Learning Outcomes",
-    "permalink": "/humanoid-ai-robotics-course/docs/learning-outcomes/introduction"
+    "permalink": "/docs/learning-outcomes/introduction"
   },
   "next": {
     "title": "Assessments",
-    "permalink": "/humanoid-ai-robotics-course/docs/assessments/introduction"
+    "permalink": "/docs/assessments/introduction"
   }
 }

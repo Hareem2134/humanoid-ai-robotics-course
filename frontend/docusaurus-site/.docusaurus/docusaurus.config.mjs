@@ -30,7 +30,7 @@ export default {
     "experimental_router": "browser"
   },
   "url": "https://haree.github.io",
-  "baseUrl": "/humanoid-ai-robotics-course/",
+  "baseUrl": "/",
   "organizationName": "haree",
   "projectName": "humanoid-ai-robotics-course",
   "onBrokenLinks": "throw",

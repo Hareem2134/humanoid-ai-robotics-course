@@ -5,7 +5,7 @@
   "source": "@site/docs/00-introduction/03-requirements.md",
   "sourceDirName": "00-introduction",
   "slug": "/introduction/requirements",
-  "permalink": "/humanoid-ai-robotics-course/docs/introduction/requirements",
+  "permalink": "/docs/introduction/requirements",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/00-introduction/03-requirements.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Learning Outcomes",
-    "permalink": "/humanoid-ai-robotics-course/docs/introduction/learning-outcomes"
+    "permalink": "/docs/introduction/learning-outcomes"
   },
   "next": {
     "title": "Introduction to ROS 2",
-    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/introduction-to-ros2"
+    "permalink": "/docs/ros-2/introduction-to-ros2"
   }
 }

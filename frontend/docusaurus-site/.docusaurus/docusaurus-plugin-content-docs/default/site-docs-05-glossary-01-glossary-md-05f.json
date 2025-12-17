@@ -5,7 +5,7 @@
   "source": "@site/docs/05-glossary/01-glossary.md",
   "sourceDirName": "05-glossary",
   "slug": "/glossary/glossary",
-  "permalink": "/humanoid-ai-robotics-course/docs/glossary/glossary",
+  "permalink": "/docs/glossary/glossary",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/05-glossary/01-glossary.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Capstone Project",
-    "permalink": "/humanoid-ai-robotics-course/docs/vla/capstone-project"
+    "permalink": "/docs/vla/capstone-project"
   },
   "next": {
     "title": "Why Physical AI Matters",
-    "permalink": "/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction"
+    "permalink": "/docs/why-physical-ai-matters/introduction"
   }
 }

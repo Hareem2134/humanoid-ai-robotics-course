@@ -5,7 +5,7 @@
   "source": "@site/docs/04-vla/04-capstone-project.md",
   "sourceDirName": "04-vla",
   "slug": "/vla/capstone-project",
-  "permalink": "/humanoid-ai-robotics-course/docs/vla/capstone-project",
+  "permalink": "/docs/vla/capstone-project",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/04-vla/04-capstone-project.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Conversational AI for Robotics",
-    "permalink": "/humanoid-ai-robotics-course/docs/vla/conversational-ai"
+    "permalink": "/docs/vla/conversational-ai"
   },
   "next": {
     "title": "Glossary",
-    "permalink": "/humanoid-ai-robotics-course/docs/glossary/glossary"
+    "permalink": "/docs/glossary/glossary"
   }
 }

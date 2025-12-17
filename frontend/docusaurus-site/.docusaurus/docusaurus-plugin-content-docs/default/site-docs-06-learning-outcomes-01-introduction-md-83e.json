@@ -5,7 +5,7 @@
   "source": "@site/docs/06-learning-outcomes/01-introduction.md",
   "sourceDirName": "06-learning-outcomes",
   "slug": "/learning-outcomes/introduction",
-  "permalink": "/humanoid-ai-robotics-course/docs/learning-outcomes/introduction",
+  "permalink": "/docs/learning-outcomes/introduction",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/06-learning-outcomes/01-introduction.md",
@@ -16,10 +16,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Why Physical AI Matters",
-    "permalink": "/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction"
+    "permalink": "/docs/why-physical-ai-matters/introduction"
   },
   "next": {
     "title": "Weekly Breakdown",
-    "permalink": "/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction"
+    "permalink": "/docs/weekly-breakdown/introduction"
   }
 }

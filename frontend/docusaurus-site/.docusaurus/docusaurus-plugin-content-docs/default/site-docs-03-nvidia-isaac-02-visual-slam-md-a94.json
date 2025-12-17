@@ -5,7 +5,7 @@
   "source": "@site/docs/03-nvidia-isaac/02-visual-slam.md",
   "sourceDirName": "03-nvidia-isaac",
   "slug": "/nvidia-isaac/visual-slam",
-  "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/visual-slam",
+  "permalink": "/docs/nvidia-isaac/visual-slam",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/03-nvidia-isaac/02-visual-slam.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Introduction to NVIDIA Isaac Sim",
-    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction-to-isaac-sim"
+    "permalink": "/docs/nvidia-isaac/introduction-to-isaac-sim"
   },
   "next": {
     "title": "Nav2 for Path Planning",
-    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/nav2"
+    "permalink": "/docs/nvidia-isaac/nav2"
   }
 }

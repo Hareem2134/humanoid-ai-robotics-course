@@ -5,7 +5,7 @@
   "source": "@site/docs/02-gazebo-and-unity/03-unity.md",
   "sourceDirName": "02-gazebo-and-unity",
   "slug": "/gazebo-and-unity/unity",
-  "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/unity",
+  "permalink": "/docs/gazebo-and-unity/unity",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/02-gazebo-and-unity/03-unity.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Gazebo for Simulation",
-    "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/gazebo"
+    "permalink": "/docs/gazebo-and-unity/gazebo"
   },
   "next": {
     "title": "Simulating Sensors",
-    "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/simulating-sensors"
+    "permalink": "/docs/gazebo-and-unity/simulating-sensors"
   }
 }

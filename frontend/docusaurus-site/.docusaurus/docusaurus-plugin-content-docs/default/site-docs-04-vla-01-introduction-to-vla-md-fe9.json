@@ -5,7 +5,7 @@
   "source": "@site/docs/04-vla/01-introduction-to-vla.md",
   "sourceDirName": "04-vla",
   "slug": "/vla/introduction-to-vla",
-  "permalink": "/humanoid-ai-robotics-course/docs/vla/introduction-to-vla",
+  "permalink": "/docs/vla/introduction-to-vla",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/04-vla/01-introduction-to-vla.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Reinforcement Learning for Robotics",
-    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/reinforcement-learning"
+    "permalink": "/docs/nvidia-isaac/reinforcement-learning"
   },
   "next": {
     "title": "Humanoid Kinematics and Manipulation",
-    "permalink": "/humanoid-ai-robotics-course/docs/vla/humanoid-kinematics"
+    "permalink": "/docs/vla/humanoid-kinematics"
   }
 }

@@ -5,7 +5,7 @@
   "source": "@site/docs/01-ros-2/04-rclpy.md",
   "sourceDirName": "01-ros-2",
   "slug": "/ros-2/rclpy",
-  "permalink": "/humanoid-ai-robotics-course/docs/ros-2/rclpy",
+  "permalink": "/docs/ros-2/rclpy",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/01-ros-2/04-rclpy.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "ROS 2 Nodes, Topics, and Services",
-    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/ros2-nodes-topics-services"
+    "permalink": "/docs/ros-2/ros2-nodes-topics-services"
   },
   "next": {
     "title": "Understanding URDF",
-    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/urdf"
+    "permalink": "/docs/ros-2/urdf"
   }
 }

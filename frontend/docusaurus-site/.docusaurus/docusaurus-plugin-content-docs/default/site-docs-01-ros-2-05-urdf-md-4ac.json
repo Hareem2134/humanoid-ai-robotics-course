@@ -5,7 +5,7 @@
   "source": "@site/docs/01-ros-2/05-urdf.md",
   "sourceDirName": "01-ros-2",
   "slug": "/ros-2/urdf",
-  "permalink": "/humanoid-ai-robotics-course/docs/ros-2/urdf",
+  "permalink": "/docs/ros-2/urdf",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/01-ros-2/05-urdf.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Bridging Python Agents to ROS controllers using rclpy",
-    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/rclpy"
+    "permalink": "/docs/ros-2/rclpy"
   },
   "next": {
     "title": "Introduction to Simulation",
-    "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction-to-simulation"
+    "permalink": "/docs/gazebo-and-unity/introduction-to-simulation"
   }
 }

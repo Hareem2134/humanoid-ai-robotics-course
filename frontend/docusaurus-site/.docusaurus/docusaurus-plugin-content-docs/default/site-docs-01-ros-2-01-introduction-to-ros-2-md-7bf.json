@@ -5,7 +5,7 @@
   "source": "@site/docs/01-ros-2/01-introduction-to-ros2.md",
   "sourceDirName": "01-ros-2",
   "slug": "/ros-2/introduction-to-ros2",
-  "permalink": "/humanoid-ai-robotics-course/docs/ros-2/introduction-to-ros2",
+  "permalink": "/docs/ros-2/introduction-to-ros2",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/01-ros-2/01-introduction-to-ros2.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Hardware and Software Requirements",
-    "permalink": "/humanoid-ai-robotics-course/docs/introduction/requirements"
+    "permalink": "/docs/introduction/requirements"
   },
   "next": {
     "title": "ROS 2 Architecture",
-    "permalink": "/humanoid-ai-robotics-course/docs/ros-2/ros2-architecture"
+    "permalink": "/docs/ros-2/ros2-architecture"
   }
 }

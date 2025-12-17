@@ -1,148 +1,148 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/humanoid-ai-robotics-course/docs",
+      "path": "/docs",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/humanoid-ai-robotics-course/docs",
+          "path": "/docs",
           "mainDocId": "introduction/overview",
           "docs": [
             {
               "id": "assessments/introduction",
-              "path": "/humanoid-ai-robotics-course/docs/assessments/introduction",
+              "path": "/docs/assessments/introduction",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "gazebo-and-unity/gazebo",
-              "path": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/gazebo",
+              "path": "/docs/gazebo-and-unity/gazebo",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "gazebo-and-unity/introduction-to-simulation",
-              "path": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/introduction-to-simulation",
+              "path": "/docs/gazebo-and-unity/introduction-to-simulation",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "gazebo-and-unity/simulating-sensors",
-              "path": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/simulating-sensors",
+              "path": "/docs/gazebo-and-unity/simulating-sensors",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "gazebo-and-unity/unity",
-              "path": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/unity",
+              "path": "/docs/gazebo-and-unity/unity",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "glossary/glossary",
-              "path": "/humanoid-ai-robotics-course/docs/glossary/glossary",
+              "path": "/docs/glossary/glossary",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "hardware-requirements/introduction",
-              "path": "/humanoid-ai-robotics-course/docs/hardware-requirements/introduction",
+              "path": "/docs/hardware-requirements/introduction",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "intro",
-              "path": "/humanoid-ai-robotics-course/docs/intro",
+              "path": "/docs/intro",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "introduction/learning-outcomes",
-              "path": "/humanoid-ai-robotics-course/docs/introduction/learning-outcomes",
+              "path": "/docs/introduction/learning-outcomes",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "introduction/overview",
-              "path": "/humanoid-ai-robotics-course/docs/introduction/overview",
+              "path": "/docs/introduction/overview",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "introduction/requirements",
-              "path": "/humanoid-ai-robotics-course/docs/introduction/requirements",
+              "path": "/docs/introduction/requirements",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "learning-outcomes/introduction",
-              "path": "/humanoid-ai-robotics-course/docs/learning-outcomes/introduction",
+              "path": "/docs/learning-outcomes/introduction",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "nvidia-isaac/introduction-to-isaac-sim",
-              "path": "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction-to-isaac-sim",
+              "path": "/docs/nvidia-isaac/introduction-to-isaac-sim",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "nvidia-isaac/nav2",
-              "path": "/humanoid-ai-robotics-course/docs/nvidia-isaac/nav2",
+              "path": "/docs/nvidia-isaac/nav2",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "nvidia-isaac/reinforcement-learning",
-              "path": "/humanoid-ai-robotics-course/docs/nvidia-isaac/reinforcement-learning",
+              "path": "/docs/nvidia-isaac/reinforcement-learning",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "nvidia-isaac/visual-slam",
-              "path": "/humanoid-ai-robotics-course/docs/nvidia-isaac/visual-slam",
+              "path": "/docs/nvidia-isaac/visual-slam",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "ros-2/introduction-to-ros2",
-              "path": "/humanoid-ai-robotics-course/docs/ros-2/introduction-to-ros2",
+              "path": "/docs/ros-2/introduction-to-ros2",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "ros-2/rclpy",
-              "path": "/humanoid-ai-robotics-course/docs/ros-2/rclpy",
+              "path": "/docs/ros-2/rclpy",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "ros-2/ros2-architecture",
-              "path": "/humanoid-ai-robotics-course/docs/ros-2/ros2-architecture",
+              "path": "/docs/ros-2/ros2-architecture",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "ros-2/ros2-nodes-topics-services",
-              "path": "/humanoid-ai-robotics-course/docs/ros-2/ros2-nodes-topics-services",
+              "path": "/docs/ros-2/ros2-nodes-topics-services",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "ros-2/urdf",
-              "path": "/humanoid-ai-robotics-course/docs/ros-2/urdf",
+              "path": "/docs/ros-2/urdf",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "vla/capstone-project",
-              "path": "/humanoid-ai-robotics-course/docs/vla/capstone-project",
+              "path": "/docs/vla/capstone-project",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "vla/conversational-ai",
-              "path": "/humanoid-ai-robotics-course/docs/vla/conversational-ai",
+              "path": "/docs/vla/conversational-ai",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "vla/humanoid-kinematics",
-              "path": "/humanoid-ai-robotics-course/docs/vla/humanoid-kinematics",
+              "path": "/docs/vla/humanoid-kinematics",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "vla/introduction-to-vla",
-              "path": "/humanoid-ai-robotics-course/docs/vla/introduction-to-vla",
+              "path": "/docs/vla/introduction-to-vla",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "weekly-breakdown/introduction",
-              "path": "/humanoid-ai-robotics-course/docs/weekly-breakdown/introduction",
+              "path": "/docs/weekly-breakdown/introduction",
               "sidebar": "defaultSidebar"
             },
             {
               "id": "why-physical-ai-matters/introduction",
-              "path": "/humanoid-ai-robotics-course/docs/why-physical-ai-matters/introduction",
+              "path": "/docs/why-physical-ai-matters/introduction",
               "sidebar": "defaultSidebar"
             }
           ],
@@ -150,7 +150,7 @@
           "sidebars": {
             "defaultSidebar": {
               "link": {
-                "path": "/humanoid-ai-robotics-course/docs/introduction/overview",
+                "path": "/docs/introduction/overview",
                 "label": "introduction/overview"
               }
             }

@@ -5,7 +5,7 @@
   "source": "@site/docs/02-gazebo-and-unity/04-simulating-sensors.md",
   "sourceDirName": "02-gazebo-and-unity",
   "slug": "/gazebo-and-unity/simulating-sensors",
-  "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/simulating-sensors",
+  "permalink": "/docs/gazebo-and-unity/simulating-sensors",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/02-gazebo-and-unity/04-simulating-sensors.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Unity for Photorealistic Simulation",
-    "permalink": "/humanoid-ai-robotics-course/docs/gazebo-and-unity/unity"
+    "permalink": "/docs/gazebo-and-unity/unity"
   },
   "next": {
     "title": "Introduction to NVIDIA Isaac Sim",
-    "permalink": "/humanoid-ai-robotics-course/docs/nvidia-isaac/introduction-to-isaac-sim"
+    "permalink": "/docs/nvidia-isaac/introduction-to-isaac-sim"
   }
 }

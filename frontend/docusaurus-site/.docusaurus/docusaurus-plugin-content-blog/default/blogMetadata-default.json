@@ -1,5 +1,5 @@
 {
-  "blogBasePath": "/humanoid-ai-robotics-course/blog",
+  "blogBasePath": "/blog",
   "blogTitle": "Blog",
-  "authorsListPath": "/humanoid-ai-robotics-course/blog/authors"
+  "authorsListPath": "/blog/authors"
 }

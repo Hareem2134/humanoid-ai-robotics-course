@@ -5,7 +5,7 @@
   "source": "@site/docs/04-vla/02-humanoid-kinematics.md",
   "sourceDirName": "04-vla",
   "slug": "/vla/humanoid-kinematics",
-  "permalink": "/humanoid-ai-robotics-course/docs/vla/humanoid-kinematics",
+  "permalink": "/docs/vla/humanoid-kinematics",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/haree/humanoid-ai-robotics-course/tree/main/docs/04-vla/02-humanoid-kinematics.md",
@@ -18,10 +18,10 @@
   "sidebar": "defaultSidebar",
   "previous": {
     "title": "Introduction to Vision-Language-Action (VLA) Models",
-    "permalink": "/humanoid-ai-robotics-course/docs/vla/introduction-to-vla"
+    "permalink": "/docs/vla/introduction-to-vla"
   },
   "next": {
     "title": "Conversational AI for Robotics",
-    "permalink": "/humanoid-ai-robotics-course/docs/vla/conversational-ai"
+    "permalink": "/docs/vla/conversational-ai"
   }
 }
