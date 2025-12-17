@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "NODE_OPTIONS=--max-old-space-size=8192 node node_modules/@docusaurus/core/bin/docusaurus.js build",
+    "build": "chmod +x node_modules/.bin/docusaurus && NODE_OPTIONS=--max-old-space-size=8192 npx docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "cross-env NODE_OPTIONS=--max-old-space-size=8192 docusaurus deploy",
     "clear": "docusaurus clear",
