@@ -2,50 +2,50 @@
   "/__docusaurus/debug/-546": {
     "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debug-b-38-55f"
+      "plugin": "plugin---docusaurus-debug-b-38-895"
     }
   },
   "/__docusaurus/debug/config/-8a8": {
     "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debug-b-38-55f"
+      "plugin": "plugin---docusaurus-debug-b-38-895"
     }
   },
   "/__docusaurus/debug/content/-2da": {
     "__comp": "__comp---theme-debug-contentba-8-ce7",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debug-b-38-55f"
+      "plugin": "plugin---docusaurus-debug-b-38-895"
     },
     "__props": "__props---docusaurus-debug-content-197-dc7"
   },
   "/__docusaurus/debug/globalData/-178": {
     "__comp": "__comp---theme-debug-global-dataede-0fa",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debug-b-38-55f"
+      "plugin": "plugin---docusaurus-debug-b-38-895"
     }
   },
   "/__docusaurus/debug/metadata/-d6c": {
     "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debug-b-38-55f"
+      "plugin": "plugin---docusaurus-debug-b-38-895"
     }
   },
   "/__docusaurus/debug/registry/-6e3": {
     "__comp": "__comp---theme-debug-registry-679-501",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debug-b-38-55f"
+      "plugin": "plugin---docusaurus-debug-b-38-895"
     }
   },
   "/__docusaurus/debug/routes/-cab": {
     "__comp": "__comp---theme-debug-routes-946-699",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docusaurus-debug-b-38-55f"
+      "plugin": "plugin---docusaurus-debug-b-38-895"
     }
   },
   "/docs/-268": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-docs-aba-ea9"
+      "plugin": "plugin---docs-aba-4f5"
     }
   },
   "/docs/-fcf": {
@@ -57,117 +57,117 @@
   },
   "/docs/assessments/introduction/-269": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-assessments-introduction-42-b-de3"
+    "content": "content---docs-assessments-introduction-42-b-e2f"
   },
   "/docs/gazebo-and-unity/gazebo/-6be": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-gazebo-and-unity-gazebo-8-d-2-051"
+    "content": "content---docs-gazebo-and-unity-gazebo-8-d-2-ccc"
   },
   "/docs/gazebo-and-unity/introduction-to-simulation/-cf1": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-gazebo-and-unity-introduction-to-simulation-09-a-707"
+    "content": "content---docs-gazebo-and-unity-introduction-to-simulation-09-a-64f"
   },
   "/docs/gazebo-and-unity/simulating-sensors/-626": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-gazebo-and-unity-simulating-sensors-66-d-9a9"
+    "content": "content---docs-gazebo-and-unity-simulating-sensors-66-d-a09"
   },
   "/docs/gazebo-and-unity/unity/-ed7": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-gazebo-and-unity-unity-136-d9c"
+    "content": "content---docs-gazebo-and-unity-unity-136-8e7"
   },
   "/docs/glossary/glossary/-75d": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-glossary-glossary-05-f-1e3"
+    "content": "content---docs-glossary-glossary-05-f-a6b"
   },
   "/docs/hardware-requirements/introduction/-58a": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-hardware-requirements-introduction-cf-1-96a"
+    "content": "content---docs-hardware-requirements-introduction-cf-1-654"
   },
   "/docs/intro/-518": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-intro-0-e-3-dc6"
+    "content": "content---docs-intro-0-e-3-7e4"
   },
   "/docs/introduction/learning-outcomes/-b64": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-introduction-learning-outcomes-14-c-863"
+    "content": "content---docs-introduction-learning-outcomes-14-c-4d4"
   },
   "/docs/introduction/overview/-316": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-introduction-overview-d-25-68c"
+    "content": "content---docs-introduction-overview-d-25-2d4"
   },
   "/docs/introduction/requirements/-1e8": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-introduction-requirements-d-2-b-9d1"
+    "content": "content---docs-introduction-requirements-d-2-b-a9a"
   },
   "/docs/learning-outcomes/introduction/-c44": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-learning-outcomes-introduction-83-e-cb1"
+    "content": "content---docs-learning-outcomes-introduction-83-e-8f6"
   },
   "/docs/nvidia-isaac/introduction-to-isaac-sim/-0c0": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-nvidia-isaac-introduction-to-isaac-sim-013-bae"
+    "content": "content---docs-nvidia-isaac-introduction-to-isaac-sim-013-a91"
   },
   "/docs/nvidia-isaac/nav2/-80d": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-nvidia-isaac-nav-2-c-7-c-811"
+    "content": "content---docs-nvidia-isaac-nav-2-c-7-c-a94"
   },
   "/docs/nvidia-isaac/reinforcement-learning/-aaf": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-nvidia-isaac-reinforcement-learning-78-a-ef2"
+    "content": "content---docs-nvidia-isaac-reinforcement-learning-78-a-650"
   },
   "/docs/nvidia-isaac/visual-slam/-ea1": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-nvidia-isaac-visual-slam-a-94-a6d"
+    "content": "content---docs-nvidia-isaac-visual-slam-a-94-553"
   },
   "/docs/ros-2/introduction-to-ros2/-347": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-ros-2-introduction-to-ros-2-7-bf-726"
+    "content": "content---docs-ros-2-introduction-to-ros-2-7-bf-f01"
   },
   "/docs/ros-2/rclpy/-7d9": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-ros-2-rclpy-673-cbe"
+    "content": "content---docs-ros-2-rclpy-673-7cd"
   },
   "/docs/ros-2/ros2-architecture/-b3c": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-ros-2-ros-2-architecture-520-fb4"
+    "content": "content---docs-ros-2-ros-2-architecture-520-cf3"
   },
   "/docs/ros-2/ros2-nodes-topics-services/-4dd": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-ros-2-ros-2-nodes-topics-services-291-9f3"
+    "content": "content---docs-ros-2-ros-2-nodes-topics-services-291-2c5"
   },
   "/docs/ros-2/urdf/-648": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-ros-2-urdf-4-ac-99b"
+    "content": "content---docs-ros-2-urdf-4-ac-1a9"
   },
   "/docs/vla/capstone-project/-c42": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-vla-capstone-project-849-b83"
+    "content": "content---docs-vla-capstone-project-849-444"
   },
   "/docs/vla/conversational-ai/-296": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-vla-conversational-ai-9-e-1-69d"
+    "content": "content---docs-vla-conversational-ai-9-e-1-613"
   },
   "/docs/vla/humanoid-kinematics/-0b0": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-vla-humanoid-kinematics-fa-8-57e"
+    "content": "content---docs-vla-humanoid-kinematics-fa-8-fb7"
   },
   "/docs/vla/introduction-to-vla/-17e": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-vla-introduction-to-vla-fe-9-a48"
+    "content": "content---docs-vla-introduction-to-vla-fe-9-a51"
   },
   "/docs/weekly-breakdown/introduction/-d07": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-weekly-breakdown-introduction-a-6-f-840"
+    "content": "content---docs-weekly-breakdown-introduction-a-6-f-eac"
   },
   "/docs/why-physical-ai-matters/introduction/-58d": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---humanoid-ai-robotics-course-docs-why-physical-ai-matters-introduction-d-01-f87"
+    "content": "content---docs-why-physical-ai-matters-introduction-d-01-aa9"
   },
   "/-2e1": {
     "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
     "__context": {
-      "plugin": "plugin---humanoid-ai-robotics-course-a-74-1a0"
+      "plugin": "plugin---a-74-9d6"
     },
-    "config": "config---humanoid-ai-robotics-course-5-e-9-d6a"
+    "config": "config---5-e-9-4f3"
   }
 }
