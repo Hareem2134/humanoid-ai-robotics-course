@@ -7,3 +7,4 @@ qdrant-client
 openai
 langchain-community
 langchain-classic
+psycopg2-binary

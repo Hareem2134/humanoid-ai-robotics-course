@@ -26,7 +26,7 @@ const config: Config = {
   organizationName: 'haree', // Usually your GitHub org/user name.
   projectName: 'humanoid-ai-robotics-course', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -55,7 +55,7 @@ const config: Config = {
   ],
   plugins: [
     './plugins/chatbot-plugin',
-    // './plugins/webpack-proxy',
+    './plugins/webpack-proxy',
   ],
 
 
