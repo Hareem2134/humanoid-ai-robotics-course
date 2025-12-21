@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import useIsBrowser from '@docusaurus/useIsBrowser';
 import styles from './Chatbot.module.css'; // Assuming you create a CSS module
 
 function Chatbot() {
@@ -10,12 +9,8 @@ function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedText, setSelectedText] = useState('');
-  const isBrowser = useIsBrowser();
 
   useEffect(() => {
-    if (!isBrowser) {
-      return;
-    }
     const handleSelectionChange = () => {
       const selection = window.getSelection();
       setSelectedText(selection.toString().trim());
@@ -28,12 +23,8 @@ function Chatbot() {
       document.removeEventListener('mouseup', handleSelectionChange);
       document.removeEventListener('keyup', handleSelectionChange);
     };
-  }, [isBrowser]);
+  }, []);
 
-  if (!isBrowser) {
-    return null;
-  }
-  
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
     // Clear selected text when closing chatbot
