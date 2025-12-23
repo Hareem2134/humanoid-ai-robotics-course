@@ -19,9 +19,9 @@ def get_db_connection():
     conn = psycopg2.connect(DATABASE_URL)
     return conn
 
-def create_knowledge_base_table():
+def create_tables():
     """
-    Creates the knowledge_base table in the database if it doesn't exist.
+    Creates the database tables if they don't exist.
     """
     conn = get_db_connection()
     cur = conn.cursor()
@@ -33,6 +33,21 @@ def create_knowledge_base_table():
             chapter_id UUID,
             section_id UUID,
             order_in_section INTEGER,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS conversations (
+            conversation_id UUID PRIMARY KEY,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS conversation_messages (
+            message_id UUID PRIMARY KEY,
+            conversation_id UUID REFERENCES conversations(conversation_id),
+            role TEXT NOT NULL, -- 'user' or 'assistant'
+            content TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
     """)
@@ -55,3 +70,32 @@ def insert_chunk(text_content, textbook_id=None, chapter_id=None, section_id=Non
     cur.close()
     conn.close()
     return chunk_id
+
+def create_conversation():
+    """
+    Creates a new conversation and returns its ID.
+    """
+    conn = get_db_connection()
+    cur = conn.cursor()
+    conversation_id = uuid.uuid4()
+    cur.execute("INSERT INTO conversations (conversation_id) VALUES (%s);", (conversation_id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return conversation_id
+
+def insert_message(conversation_id, role, content):
+    """
+    Inserts a new message into the conversation_messages table.
+    """
+    conn = get_db_connection()
+    cur = conn.cursor()
+    message_id = uuid.uuid4()
+    cur.execute("""
+        INSERT INTO conversation_messages (message_id, conversation_id, role, content)
+        VALUES (%s, %s, %s, %s);
+    """, (message_id, conversation_id, role, content))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return message_id

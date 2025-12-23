@@ -1,152 +1,67 @@
-# Tasks: Physical AI & Humanoid Robotics Textbook
+# Implementation Tasks: RAG Chatbot
 
-**Input**: Design documents from `/specs/001-create-course-book/`
-**Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
+This document outlines the detailed tasks for implementing the Retrieval-Augmented Generation (RAG) Chatbot feature, as specified in `specs/001-create-course-book/spec.md` and detailed in `specs/001-create-course-book/plan.md`.
 
-**Tests**: No explicit test tasks are included as they were not requested in the feature specification. However, the project structure includes directories for tests, and testing should be performed as part of each implementation task.
+## Feature: RAG Chatbot
 
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
+### Phase 1: Setup
 
-## Format: `[ID] [P?] [Story] Description`
+- [ ] T001 Initialize Python backend virtual environment and install dependencies in `backend/requirements.txt`
+- [ ] T002 Initialize Node.js frontend dependencies in `frontend/docusaurus-site/package.json`
+- [ ] T003 Create `.env` files for backend and frontend based on `.env.template` in `backend/.env.template` and `frontend/docusaurus-site/.env.template` (if it exists, otherwise define a new one for frontend)
 
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
-- Include exact file paths in descriptions
+### Phase 2: Foundational Tasks (Blocking Prerequisites)
 
-## Path Conventions
+- [ ] T004 Setup Qdrant Cloud Free Tier instance and obtain API key and URL for `backend/.env`
+- [ ] T005 Setup OpenAI API key for `backend/.env`
+- [ ] T006 Setup Neon Serverless Postgres instance and obtain `NEON_DATABASE_URL` for `backend/.env`
+- [ ] T007 Implement database connection and schema creation logic to automatically run `create_tables()` from `backend/src/core/database.py` on backend startup.
+- [ ] T008 Develop a clear process for initial data ingestion using `backend/scripts/ingestion_script.py` and ensure it can be run as part of setup or deployment.
+- [ ] T009 [P] Implement `get_rag_chain` in `backend/src/services/rag_service.py` to correctly initialize LLM, embedding model, and vector store.
+- [ ] T010 [P] Implement `get_rag_response` in `backend/src/services/rag_service.py` to handle query processing and response generation.
 
-- **Web app**: `backend/src/`, `frontend/docusaurus-site/`
+### Phase 3: User Story 1 - General Questions (Priority: P1)
 
-## Phase 1: Setup (Shared Infrastructure)
+**Story Goal**: A student reading the textbook can open the chatbot, ask a question about a topic covered in the book, and receive a relevant answer based on the book's content.
 
-**Purpose**: Project initialization and basic structure
+**Independent Test Criteria**: The chatbot can be opened, a general question can be asked, and a relevant answer (or "no info") is returned.
 
-- [x] T001 Create the monorepo directory structure: `frontend/` and `backend/`
-- [x] T002 [P] Initialize a Docusaurus v3 project in `frontend/docusaurus-site/`
-- [x] T003 [P] Initialize a Python project with a virtual environment in `backend/`
-- [x] T004 [P] Create a basic FastAPI application structure in `backend/src/`
-- [x] T005 [P] Configure linting and formatting tools (e.g., ESLint, Prettier for frontend; Black, Ruff for backend)
+- [ ] T011 [P] [US1] Implement `chat_query` API endpoint in `backend/src/api/chat.py` to handle general questions.
+- [ ] T012 [P] [US1] Update `backend/src/api/chat.py` to save conversation history to the Neon database.
+- [ ] T013 [P] [US1] Modify `frontend/docusaurus-site/src/components/Chatbot.js` to send general questions to the `/api/v1/chat/query` endpoint and display responses.
+- [ ] T014 [US1] Ensure the chatbot UI (`frontend/docusaurus-site/src/components/Chatbot.js`) opens and closes correctly.
 
----
+### Phase 4: User Story 2 - Context-aware Answers (Priority: P2)
 
-## Phase 2: Foundational (Blocking Prerequisites)
+**Story Goal**: A student can select a paragraph of text in the textbook, and the chatbot will provide an option to ask a question specifically about that selection. The answer should be based only on the selected text.
 
-**Purpose**: Core infrastructure for the RAG chatbot backend that MUST be complete before chatbot-related user stories can be implemented.
+**Independent Test Criteria**: A user can select text, a button appears to "Ask about selection", and the chatbot answers a question based only on that selection.
 
-**⚠️ CRITICAL**: No chatbot work can begin until this phase is complete.
+- [ ] T015 [P] [US2] Implement `query_selection` API endpoint in `backend/src/api/chat.py` to handle context-aware questions with selected text.
+- [ ] T016 [P] [US2] Update `backend/src/api/chat.py` to save context-aware conversation history to the Neon database.
+- [ ] T017 [P] [US2] Modify `frontend/docusaurus-site/src/components/Chatbot.js` to detect text selection and display an "Ask Chatbot about selection" button.
+- [ ] T018 [P] [US2] Modify `frontend/docusaurus-site/src/components/Chatbot.js` to send selected text and query to the `/api/v1/chat/query_selection` endpoint.
 
-- [x] T006 Create `backend/requirements.txt` with initial dependencies: `fastapi`, `uvicorn`, `python-dotenv`, `llama-index`, `qdrant-client`, `psycopg2-binary`, `openai`
-- [x] T007 Create `.env.example` file in `backend/` with placeholders for `OPENAI_API_KEY`, `NEON_DATABASE_URL`, `QDRANT_API_KEY`, `QDRANT_URL`
-- [x] T008 [P] Implement a module to connect to the Neon Postgres database in `backend/src/core/database.py`
-- [x] T009 [P] Implement a module to initialize the Qdrant client in `backend/src/core/qdrant.py`
-- [x] T010 [P] Implement a module to initialize the OpenAI client in `backend/src/core/openai.py`
-- [x] T011 Create the data ingestion script in `backend/scripts/ingest_data.py` to read markdown files, chunk content, generate embeddings, and store in Qdrant and Neon.
+### Phase 5: Polish & Cross-Cutting Concerns
 
-**Checkpoint**: Foundation ready - user story implementation can now begin.
+- [ ] T019 Implement comprehensive error handling for both backend and frontend, providing user-friendly messages.
+- [ ] T020 Review and update `deployment_instructions.md` and `vercel-deployment.md` with complete and accurate instructions for deploying the RAG chatbot (backend and frontend), including all environment variables and database setup/ingestion steps.
+- [ ] T021 Implement unit and integration tests for `backend/src/api/chat.py`, `backend/src/services/rag_service.py`, and `backend/src/core/database.py`.
+- [ ] T022 Implement Playwright end-to-end tests for the chatbot functionality as per `spec.md` acceptance scenarios.
+- [ ] T023 Optimize chatbot performance to meet SC-003 (p95 latency under 3 seconds).
 
----
+## Dependencies
 
-## Phase 3: User Story 1 & 2 - Textbook Publishing and Reading (Priority: P1) 🎯 MVP
+- Phase 1 (Setup) must be completed before any other phase.
+- Phase 2 (Foundational Tasks) must be completed before Phase 3 or Phase 4.
+- Phase 3 (User Story 1) and Phase 4 (User Story 2) can be worked on somewhat in parallel after Foundational tasks, but User Story 1 (General Questions) is P1 and should be prioritized.
+- Phase 5 (Polish & Cross-Cutting Concerns) can begin after core functionality for both user stories is implemented.
 
-**Goal**: Publish a comprehensive textbook using Docusaurus and ensure it is readable online.
+## Parallel Execution Examples
 
-**Independent Test**: The Docusaurus site is built successfully and deployed to GitHub Pages, accessible via a public URL, displaying all course content. A student can navigate through all modules and sections.
-
-### Implementation for User Story 1 & 2
-
-- [x] T012 [US1] Configure `frontend/docusaurus-site/docusaurus.config.js` with the textbook title, description, and navigation structure.
-- [x] T013 [US1] Create placeholder markdown files for each module and section of the textbook in `frontend/docusaurus-site/docs/`.
-- [ ] T014 [US2] Populate the placeholder markdown files with the actual course content.
-- [x] T015 [US1] Set up a GitHub Actions workflow in `.github/workflows/deploy-docusaurus.yml` to build and deploy the Docusaurus site to GitHub Pages on push to the main branch.
-
-**Checkpoint**: At this point, the textbook should be published and accessible online.
-
----
-
-## Phase 4: User Story 3 - RAG Chatbot (General Questions) (Priority: P1)
-
-**Goal**: Allow students to ask general questions about the textbook content using an embedded RAG chatbot.
-
-**Independent Test**: A student can open the chatbot, ask a question about a topic covered in the textbook, and receive a relevant answer.
-
-### Implementation for User Story 3
-
-- [ ] T016 [US3] Implement the `/chat/query` endpoint in `backend/src/api/chat.py` as defined in the API contract.
-- [ ] T017 [US3] Implement the RAG service in `backend/src/services/rag_service.py` to handle general queries, using LlamaIndex to retrieve context from Qdrant and generate an answer with OpenAI.
-- [ ] T018 [US3] Create a React component for the chatbot UI in `frontend/docusaurus-site/src/components/Chatbot.js`.
-- [ ] T019 [US3] Integrate the Chatbot component into the Docusaurus layout using swizzling, so it appears on all pages.
-- [ ] T020 [US3] Implement the frontend logic in the Chatbot component to call the `/chat/query` backend endpoint and display the response.
-
-**Checkpoint**: At this point, the chatbot should be able to answer general questions about the textbook.
-
----
-
-## Phase 5: User Story 4 - RAG Chatbot (Context-aware Answers) (Priority: P2)
-
-**Goal**: Allow students to get highly context-aware answers by asking questions about selected text.
-
-**Independent Test**: A student can select a paragraph, ask a question about it via the chatbot, and receive an answer that strictly adheres to the context of the selected text.
-
-### Implementation for User Story 4
-
-- [ ] T021 [US4] Implement the `/chat/query_selection` endpoint in `backend/src/api/chat.py` as defined in the API contract.
-- [ ] T022 [US4] Extend the RAG service in `backend/src/services/rag_service.py` to handle queries with selected text, passing the selection as context to the LLM.
-- [ ] T023 [US4] Extend the frontend Chatbot component in `frontend/docusaurus-site/src/components/Chatbot.js` to detect text selection on the page and provide an option to "Ask Chatbot about selection".
-- [ ] T024 [US4] Implement the frontend logic to call the `/chat/query_selection` endpoint when a user asks a question about selected text.
-
-**Checkpoint**: All user stories should now be independently functional.
-
----
-
-## Phase 6: Polish & Cross-Cutting Concerns
-
-**Purpose**: Improvements that affect multiple user stories.
-
-- [ ] T025 [P] Add comprehensive logging to the backend FastAPI application.
-- [ ] T026 [P] Implement robust error handling for both the frontend and backend.
-- [ ] T027 [P] Write E2E tests for the chatbot functionality using Playwright or Cypress in `frontend/tests/`.
-- [ ] T028 [P] Add documentation for the backend API in the form of docstrings and comments.
-- [ ] T029 [P] Run `quickstart.md` validation to ensure the setup instructions are accurate.
-- [ ] T030 [US3] Re-enable the chatbot plugin in `frontend/docusaurus-site/docusaurus.config.ts`.
-
----
-
-## Dependencies & Execution Order
-
-### Phase Dependencies
-
-- **Setup (Phase 1)**: No dependencies.
-- **Foundational (Phase 2)**: Depends on Setup completion. Blocks chatbot user stories (US3, US4).
-- **User Stories 1 & 2 (Phase 3)**: Can start after Setup. Does not depend on Foundational.
-- **User Stories 3 & 4 (Phases 4, 5)**: Depend on Foundational completion.
-- **Polish (Phase 6)**: Depends on all desired user stories being complete.
-
-### User Story Dependencies
-
-- **User Story 1 & 2**: Can be implemented in parallel with Foundational work.
-- **User Story 3**: Depends on Foundational.
-- **User Story 4**: Depends on User Story 3.
-
-### Parallel Opportunities
-
-- Frontend (Docusaurus) and Backend (FastAPI) setup can be done in parallel.
-- Content creation (US1, US2) can be done in parallel with backend foundational work (Phase 2).
-- Once the foundation is laid, different developers can work on US3 and US4, although US4 depends on US3.
-
----
+- After Phase 2, tasks T011 and T013 (US1 backend/frontend) can be worked on in parallel.
+- After Phase 2, tasks T015 and T017 (US2 backend/frontend) can be worked on in parallel.
 
 ## Implementation Strategy
 
-### MVP First (User Stories 1, 2, 3)
-
-1.  Complete Phase 1: Setup.
-2.  Complete Phase 2: Foundational.
-3.  Complete Phase 3: User Stories 1 & 2.
-4.  Complete Phase 4: User Story 3.
-5.  **STOP and VALIDATE**: The textbook is published and the chatbot can answer general questions.
-
-### Incremental Delivery
-
-1.  Complete Setup + US1/2 → Textbook is published online (Value delivered).
-2.  Add Foundational + US3 → Chatbot can answer general questions (Value added).
-3.  Add US4 → Chatbot can answer context-aware questions (Value enhanced).
+The implementation will follow an MVP-first approach. User Story 1 (General Questions) will be prioritized and delivered first as a minimum viable product. Subsequent features, such as context-aware answers, will be incrementally added. Each user story will be developed with its own independent testing to ensure functionality before integration.

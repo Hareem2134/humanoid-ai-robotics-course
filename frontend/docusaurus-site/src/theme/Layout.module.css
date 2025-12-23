@@ -1,0 +1,12 @@
+
+/**
+ * CSS files with `module.css` suffix will be processed as CSS modules.
+ * For more details, please refer to the documentation:
+ * https://docusaurus.io/docs/styling-layout/#styling-your-site-with-css-modules
+ */
+
+.layoutWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--ifm-navbar-height));
+}

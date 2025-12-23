@@ -1,49 +1,70 @@
----
-description: "Task list for fixing homepage links"
----
+# Feature: Integrated RAG Chatbot
 
-# Tasks: Fix Homepage Links
+## Phase 1: Setup
 
-**Input**: `frontend/docusaurus-site/src/pages/index.js`
-**Prerequisites**: None
+- [ ] T001 [P] Set up Python virtual environment in `backend/.venv`
+- [ ] T002 [P] Install backend dependencies from `backend/requirements.txt`
+- [ ] T003 [P] Configure Neon Serverless Postgres and Qdrant Cloud credentials in `backend/.env`
+- [ ] T004 [P] Create database schema for storing conversation history in `backend/src/core/database.py`
 
-## Format: `[ID] [P?] [Story] Description`
+## Phase 2: Foundational
 
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
-- Include exact file paths in descriptions
+- [ ] T005 Create data ingestion script in `backend/scripts/ingestion_script.py` to load book content, chunk it, and store embeddings in Qdrant
+- [ ] T006 Implement core RAG service in `backend/src/services/rag_service.py` with a method to query Qdrant for relevant context
+- [ ] T007 Implement OpenAI chat completion service in `backend/src/core/openai.py`
 
-## Phase 1: Setup (Shared Infrastructure)
+## Phase 3: User Story 1 - General Q&A
 
-**Purpose**: Project initialization and basic structure
+**User Story (US1):** As a user, I want to ask a question to the chatbot and get an answer based on the entire book's content.
 
-- [x] T001 No setup tasks needed, as we are editing an existing file.
+**Independent Test Criteria:**
+- The chatbot should be able to answer a question about the book's content.
+- The chatbot should respond with "I don't know" if the answer is not in the book.
 
----
+**Tasks:**
 
-## Phase 2: Foundational (Blocking Prerequisites)
+- [ ] T008 [US1] Create a FastAPI endpoint in `backend/src/api/chat.py` that accepts a user's question
+- [ ] T009 [US1] In the chat endpoint, use `rag_service` to retrieve relevant context from Qdrant
+- [ ] T010 [US1] In the chat endpoint, use `openai_service` to generate an answer based on the retrieved context
+- [ ] T011 [US1] Implement conversation history storage in the chat endpoint using the database
+- [ ] T012 [P] [US1] Create a simple UI for the chatbot in `frontend/docusaurus-site/src/theme/Chatbot.js`
+- [ ] T013 [US1] Connect the chatbot UI to the FastAPI backend
 
-**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
+## Phase 4: User Story 2 - Selected-Text Q&A
 
-- [x] T002 No foundational tasks.
+**User Story (US2):** As a user, I want to select a portion of text in the book and ask a question specifically about that selection.
 
----
+**Independent Test Criteria:**
+- The chatbot should be able to answer a question based only on the selected text.
+- The UI should allow the user to select text and ask a question.
 
-## Phase 3: User Story 1 - Fix Homepage Links (Priority: P1) 🎯 MVP
+**Tasks:**
 
-**Goal**: As a user, I want the links on the homepage to take me to the correct and specific content within the book, so that I can easily navigate the course material.
+- [ ] T014 [US2] Create a new FastAPI endpoint in `backend/src/api/chat.py` for selected-text Q&A
+- [ ] T015 [US2] In the new endpoint, accept the selected text and the user's question
+- [ ] T016 [US2] In the new endpoint, use `openai_service` to answer the question based on the provided text
+- [ ] T017 [P] [US2] Implement a mechanism on the frontend to capture the selected text in `frontend/docusaurus-site/src/theme/Chatbot.js`
+- [ ] T018 [US2] When a user asks a question with selected text, call the new endpoint
 
-**Independent Test**: Manually verify that all links on the homepage work as expected and navigate to the correct sections of the documentation.
+<h2>Phase 5: Polish & Cross-Cutting Concerns</h2>
 
-### Implementation for User Story 1
+- [ ] T019 [P] Enhance the chatbot UI with features like loading indicators and error messages
+- [ ] T020 [P] Add comprehensive logging to the backend services
+- [ ] T021 [P] Write unit tests for the backend services
+- [ ] T022 [P] Create a `README.md` for the backend with setup and usage instructions
+- [ ] T023 [P] Create a `README.md` for the frontend with setup and usage instructions
 
-- [x] T003 [US1] In `frontend/docusaurus-site/src/pages/index.js`, add a leading slash to the link for 'ROS 2 Architecture' in the `modules` constant.
-- [x] T004 [US1] In `frontend/docusaurus-site/src/pages/index.js`, update the links in the `sections` array for "Module 1" to include URL fragments that point to the correct headings within the markdown files.
-- [x] T005 [US1] In `frontend/docusaurus-site/src/pages/index.js`, update the links in the `sections` array for "Module 2" to include URL fragments.
-- [x] T006 [US1] In `frontend/docusaurus-site/src/pages/index.js`, update the links in the `sections` array for "Module 3" to include URL fragments.
-- [x] T007 [US1] In `frontend/docusaurus-site/src/pages/index.js`, update the links in the `sections` array for "Module 4" to include URL fragments.
-- [x] T008 [US1] In `frontend/docusaurus-site/src/pages/index.js`, verify that the links in the `HomepageQuickLinks` component are correct and add URL fragments if necessary.
+<h2>Dependencies</h2>
 
-**Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
+- US2 depends on US1's backend infrastructure (OpenAI service).
 
----
+<h2>Parallel Execution</h2>
+
+- Backend and frontend work can be parallelized to a large extent.
+- Within each user story, UI and API work can be done in parallel.
+
+<h2>Implementation Strategy</h2>
+
+- The MVP will be the implementation of User Story 1.
+- User Story 2 will be implemented after the MVP is complete.
+- Polish and cross-cutting concerns will be addressed throughout the development process.

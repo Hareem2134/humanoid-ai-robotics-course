@@ -1,5 +1,6 @@
 import os
 from typing import List, Tuple
+import logging
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Qdrant as LangchainQdrant
 from langchain_classic.chains import RetrievalQA
@@ -10,6 +11,10 @@ from openai import OpenAI
 # Assuming get_qdrant_client from core.qdrant and get_openai_client from core.openai
 from ..core.qdrant import get_qdrant_client
 from ..core.openai import get_openai_client
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def get_rag_chain(collection_name: str = "ai_robotics_textbook"):
     """
@@ -22,6 +27,7 @@ def get_rag_chain(collection_name: str = "ai_robotics_textbook"):
     Returns:
         RetrievalQA: A configured LangChain RetrievalQA chain.
     """
+    logger.info("Initializing RAG chain...")
     # 1. Initialize Embeddings and Vector Store
     embeddings = OpenAIEmbeddings()
     qdrant_client = get_qdrant_client()
@@ -55,6 +61,7 @@ def get_rag_chain(collection_name: str = "ai_robotics_textbook"):
         return_source_documents=True,
         chain_type_kwargs={"prompt": PROMPT}
     )
+    logger.info("RAG chain initialized successfully.")
     return qa_chain
 
 async def get_rag_response(query: str, selected_text: str = None) -> Tuple[str, List[str]]:
@@ -76,9 +83,11 @@ async def get_rag_response(query: str, selected_text: str = None) -> Tuple[str, 
     else:
         query_with_context = query
 
+    logger.info(f"Executing RAG chain with query: {query_with_context}")
     result = rag_chain.invoke({"query": query_with_context})
     
     answer = result["result"]
     references = [doc.metadata.get("source", "N/A") for doc in result["source_documents"]]
     
+    logger.info(f"RAG chain returned answer: {answer}")
     return answer, references
