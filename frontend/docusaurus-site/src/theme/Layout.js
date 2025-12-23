@@ -6,7 +6,7 @@ import {PageMetadata, SkipToContent} from '@docusaurus/theme-common';
 import {useKeyboardNavigation} from '@docusaurus/theme-common/internal';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import Navbar from '@theme/Navbar';
-import LayoutHead from '@theme/Layout/Head';
+// import LayoutHead from '@theme/Layout/Head';
 import Footer from '@theme/Footer';
 import LayoutProvider from '@theme/Layout/Provider';
 import {
@@ -30,7 +30,7 @@ export default function Layout(props) {
   const docsSidebar = useDocsSidebar();
   return (
     <LayoutProvider>
-      <LayoutHead />
+      {/* <LayoutHead /> */}
 
       <PageMetadata title={title} description={description} />
 

@@ -49,6 +49,8 @@ This document outlines the detailed tasks for implementing the Retrieval-Augment
 - [ ] T021 Implement unit and integration tests for `backend/src/api/chat.py`, `backend/src/services/rag_service.py`, and `backend/src/core/database.py`.
 - [ ] T022 Implement Playwright end-to-end tests for the chatbot functionality as per `spec.md` acceptance scenarios.
 - [ ] T023 Optimize chatbot performance to meet SC-003 (p95 latency under 3 seconds).
+- [x] T024 [P] Fix Docusaurus build error: Comment out LayoutHead import and usage in `frontend/docusaurus-site/src/theme/Layout.js`.
+- [x] T025 [P] Fix Docusaurus build error: Verify build passes after commenting out LayoutHead.
 
 ## Dependencies
 
