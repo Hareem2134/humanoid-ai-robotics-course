@@ -51,6 +51,10 @@ This document outlines the detailed tasks for implementing the Retrieval-Augment
 - [ ] T023 Optimize chatbot performance to meet SC-003 (p95 latency under 3 seconds).
 - [x] T024 [P] Fix Docusaurus build error: Comment out LayoutHead import and usage in `frontend/docusaurus-site/src/theme/Layout.js`.
 - [x] T025 [P] Fix Docusaurus build error: Verify build passes after commenting out LayoutHead.
+- [x] T026 [P] Deleted outdated Layout.js and Layout.module.css from `src/theme`.
+- [x] T027 [P] Manually swizzled the Layout component by copying files from `node_modules`.
+- [x] T028 [P] Re-applied Chatbot customization to the new `Layout/index.tsx`.
+- [ ] T029 [P] Deleted the swizzled `Layout` component from `src/theme` as a debugging step to isolate the build error.
 
 ## Dependencies
 
