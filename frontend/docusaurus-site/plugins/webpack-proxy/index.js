@@ -14,6 +14,7 @@ module.exports = function (context, options) {
               secure: false,
               changeOrigin: true,
               logLevel: 'debug',
+              pathRewrite: { '^/api/v1': '' },
             },
           ],
         },

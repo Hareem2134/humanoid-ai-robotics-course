@@ -41,7 +41,7 @@ const config: Config = {
   ],
   plugins: [
     './plugins/chatbot-plugin',
-    // './plugins/webpack-proxy', // Temporarily disabled to isolate build issues
+    './plugins/webpack-proxy', // Temporarily disabled to isolate build issues
   ],
 
   themeConfig: {
