@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { signup } from '../../utils/api'; // Import the signup API function
 
-function SignupForm() {
+function SignupForm({ onSignupSuccess }) { // Accept onSignupSuccess as a prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -27,10 +27,13 @@ function SignupForm() {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess('Registration successful! Please sign in.');
+        setSuccess('Registration successful!');
         setEmail('');
         setPassword('');
         setConfirmPassword('');
+        if (onSignupSuccess) {
+            onSignupSuccess(email, password); // Call the prop function
+        }
         // Optionally redirect to signin page
         // window.location.href = '/signin';
       } else {

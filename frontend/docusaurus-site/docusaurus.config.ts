@@ -25,6 +25,10 @@ const config: Config = {
     locales: ['en'],
   },
 
+  customFields: {
+    backendUrl: process.env.BACKEND_URL || 'http://localhost:8000', // Default to localhost for development
+  },
+
   presets: [
     [
       'classic',
