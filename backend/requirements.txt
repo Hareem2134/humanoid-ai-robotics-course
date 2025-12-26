@@ -8,3 +8,7 @@ openai
 langchain-community
 langchain-classic
 psycopg2-binary
+fastapi-users[sqlalchemy]
+SQLAlchemy
+pydantic[email]
+asyncpg

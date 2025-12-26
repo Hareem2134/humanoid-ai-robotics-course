@@ -1,11 +1,9 @@
-from pydantic import BaseModel, EmailStr, Field
-from typing import Optional, Dict, Any
-import uuid
-from datetime import datetime
+from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTableUUID
+from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import Column
+from ..database import Base
 
-class User(BaseModel):
-    user_id: uuid.UUID = Field(default_factory=uuid.uuid4)
-    email: EmailStr
-    hashed_password: str
-    background_data: Optional[Dict[str, Any]] = None
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+class User(SQLAlchemyBaseUserTableUUID, Base):
+    __tablename__ = "users"
+    background_data = Column(JSONB)
