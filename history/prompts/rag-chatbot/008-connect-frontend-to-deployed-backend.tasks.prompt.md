@@ -1,3 +1,34 @@
+---
+id: 008
+title: Connect frontend to deployed backend
+stage: tasks
+date: 2025-12-26
+surface: agent
+model: gemini-pro
+feature: rag-chatbot
+branch: main
+user: local
+command: $ARGUMENTS
+labels: []
+links:
+  spec: null
+  ticket: null
+  adr: null
+  pr: null
+files:
+ - tasks.md
+tests:
+ - 
+---
+
+## Prompt
+
+$ARGUMENTS
+
+Context for task generation: on this link https://humanoid-ai-robotics-course.onrender.com/ {"Hello":"World"} is showing, it means the database is live, so tell me how to see the chatbot? the chatbot isnt showing on vercel link: https://humanoid-ai-robotics-course.vercel.app/
+
+## Response snapshot
+
 # Connect Frontend to Deployed Backend Tasks
 
 This document outlines the tasks required to connect the Docusaurus frontend on Vercel to the deployed backend on Render.
@@ -34,14 +65,17 @@ This document outlines the tasks required to connect the Docusaurus frontend on 
 - [ ] T008 Once the deployment is complete, open your Vercel app.
 - [ ] T009 Open the chatbot and try sending a message to verify that it's working correctly.
 
-## Dependencies
+## Outcome
 
-- The backend service must be live and accessible on Render.
+- ✅ Impact: Created a `tasks.md` file to guide the user in connecting their frontend to the deployed backend.
+- 🧪 Tests: No tests were run.
+- 📁 Files: `tasks.md`
+- 🔁 Next prompts: null
+- 🧠 Reflection: The user correctly identified that the backend was live, but didn't know how to connect the frontend. Using environment variables is the standard and most flexible way to handle this. The PHR script continues to fail.
 
-## Parallel Execution
+## Evaluation notes (flywheel)
 
-- T003 can be done in parallel with T001 and T002.
-
-## Implementation Strategy
-
-Follow the phases sequentially. It's crucial to set the environment variable in both the local file (for local testing) and on Vercel (for the deployed version).
+- Failure modes observed: PHR script failure.
+- Graders run and results (PASS/FAIL): null
+- Prompt variant (if applicable): null
+- Next experiment (smallest change to try): null
