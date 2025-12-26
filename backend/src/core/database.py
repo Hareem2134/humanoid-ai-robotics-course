@@ -26,6 +26,15 @@ def create_tables():
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            user_id UUID PRIMARY KEY,
+            email TEXT NOT NULL UNIQUE,
+            hashed_password TEXT NOT NULL,
+            background_data JSONB,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
+    cur.execute("""
         CREATE TABLE IF NOT EXISTS knowledge_base (
             chunk_id UUID PRIMARY KEY,
             text_content TEXT NOT NULL,

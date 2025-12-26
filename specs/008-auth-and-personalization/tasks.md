@@ -8,17 +8,17 @@ description: "Task list for feature implementation: Authentication and Personali
 
 ## Phase 1: Foundational (Backend & Database)
 
-**Purpose**: To set up the core backend infrastructure for authentication and user data storage.
+**Purpose**: To set up the core backend infrastructure for authentication and user data storage using `fastapi-users`.
 
 - [ ] T001 [P] Define a `users` table schema in the database to store user profiles, including an ID, email, and a JSON field for background data.
 - [ ] T002 [P] Create a `User` database model in `backend/src/core/models/user.py`.
 - [ ] T003 [P] Create a `User` Pydantic model for the API in `backend/src/api/models/user.py`.
-- [ ] T004 Integrate the `better-auth` library into the FastAPI backend (`backend/src/main.py`).
-- [ ] T005 Implement a basic authentication service in `backend/src/services/auth_service.py` that handles the core logic of `better-auth`.
-- [ ] T006 [US1] Create a `/api/auth/signup` endpoint in the backend to handle new user registration.
-- [ ] T007 [US2] Create a `/api/auth/signin` endpoint in the backend for user login.
-- [ ] T008 [US2] Create a `/api/auth/logout` endpoint in the backend for user logout.
-- [ ] T009 [US1] Create a `/api/users/me/profile` endpoint in the backend to store user background data.
+- [ ] T004 Install `fastapi-users` with the `sqlalchemy` extra: `pip install "fastapi-users[sqlalchemy]"`.
+- [ ] T005 Update the `User` model in `backend/src/core/models/user.py` to be compatible with `fastapi-users`. This involves adding the `SQLAlchemyBaseUserTableUUID` mixin.
+- [ ] T006 Create a `get_user_db` dependency in `backend/src/services/user_service.py` to provide a user database adapter.
+- [ ] T007 Configure `fastapi-users` in `backend/src/main.py` by creating an `AuthenticationBackend` and a `FastAPIUsers` instance.
+- [ ] T008 Include the `fastapi-users` authentication and user management routers in the main FastAPI app in `backend/src/main.py`.
+- [ ] T009 [US1] Create a `/api/users/me/profile` endpoint in the backend to store user background data, protected by authentication.
 
 ---
 
