@@ -18,11 +18,11 @@ This document outlines the tasks required to diagnose and fix the issue of the c
 
 ### Implementation Tasks
 
-- [ ] T001 Review Vercel deployment logs for any build or runtime errors in the frontend application.
-- [ ] T002 Review Render deployment logs for any backend API startup or runtime errors.
-- [ ] T003 Verify the `REACT_APP_API_URL` (or equivalent) environment variable in the Vercel project settings is correctly set to the public Render backend URL.
+- [ ] T003 Verify the `REACT_APP_API_URL` (or equivalent) environment variable in the Vercel project settings is correctly set to the public Render backend URL. **This is now the highest priority.**
 - [ ] T004 Open the deployed Vercel site, open browser developer tools, and check the **Console** tab for any JavaScript errors (e.g., `ReferenceError`, `TypeError`).
 - [ ] T005 In the browser developer tools, check the **Network** tab to see if the frontend is attempting to make API calls to the backend. Look for failed requests (e.g., status 404, 500, or CORS errors).
+- [ ] T001 Review Vercel deployment logs for any build or runtime errors in the frontend application.
+- [x] T002 Review Render deployment logs for any backend API startup or runtime errors. *(User confirmed backend is live, but keep an eye on logs for errors if the frontend makes a request that fails).*
 
 ---
 
