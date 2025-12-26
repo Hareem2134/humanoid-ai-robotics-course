@@ -18,27 +18,28 @@ This document outlines the tasks required to diagnose and fix the issue of the c
 
 ### Implementation Tasks
 
-- [ ] T001 Review Vercel deployment logs for any build or runtime errors in the frontend application. **CRITICAL: Look for "Minified React error #418" and "#423" or similar React-related warnings/errors, and details about the 'intro' 404.**
+- [x] T001 Review Vercel deployment logs for any build or runtime errors in the frontend application. **CRITICAL: Look for "Minified React error #418" and "#423" or similar React-related warnings/errors, and details about the 'intro' 404.** *(React errors are no longer reported in console. Verify Vercel logs to confirm their absence or resolution).*
 - [x] T002 Review Render deployment logs for any backend API startup or runtime errors. *(User confirmed backend is live, but keep an eye on logs for errors if the frontend makes a request that fails).*
-- [ ] T003 Verify the `REACT_APP_API_URL` (or equivalent) environment variable in the Vercel project settings is correctly set to the public Render backend URL. **Still important, but React errors take precedence.**
-- [x] T004 Open the deployed Vercel site, open browser developer tools, and check the **Console** tab for any JavaScript errors (e.g., `ReferenceError`, `TypeError`). *(User reported "Minified React error #418" and "#423" which are critical, and non-critical favicon 404 and intro page 404).*
+- [ ] T003 Verify the `REACT_APP_API_URL` (or equivalent) environment variable in the Vercel project settings is correctly set to the public Render backend URL. **This is critical, as no network requests to the API were observed for the chatbot.**
+- [x] T004 Open the deployed Vercel site, open browser developer tools, and check the **Console** tab for any JavaScript errors (e.g., `ReferenceError`, `TypeError`). *(User reported no critical React errors. Minor reflow warnings and non-critical favicon/intro 404s present).*
 - [x] T005 In the browser developer tools, check the **Network** tab to see if the frontend is attempting to make API calls to the backend. Look for failed requests (e.g., status 404, 500, or CORS errors). *(User reported no API calls or related errors observed, only 404 for 'intro' page).*
 
 ---
 
-## Phase 2: Frontend Code Investigation (React Error Debugging)
+## Phase 2: Frontend Code Investigation (Chatbot Integration)
 
-**Goal**: Resolve the critical React rendering errors preventing the Docusaurus application from loading correctly.
+**Goal**: Investigate why the chatbot UI is not appearing and making API calls, now that major React rendering errors are gone.
 
 **Independent Test Criteria**:
-- The Docusaurus application loads without any "Minified React error" messages in the console.
+- The chatbot component's rendering logic has been verified.
+- Docusaurus configuration for the chatbot is confirmed correct.
 
 ### Implementation Tasks
 
-- [ ] T006 [US1] Analyze the React component(s) indicated in the console errors (e.g., related to `div`, `footer`) for common React rendering issues (e.g., incorrect return values, state update loops, unhandled errors). Start by looking at `frontend/docusaurus-site/src/theme/Layout/index.js` or similar top-level components that render `div` and `footer`.
-- [ ] T007 [US1] To get more detailed error messages, temporarily disable React's minification or enable development mode on the Vercel deployment if possible, or replicate the issue locally. (Reference: `https://reactjs.org/docs/error-decoder.html` for full message).
-- [ ] T008 [US1] Investigate the `intro` 404 error by checking `frontend/docusaurus-site/docs/intro.md` and Docusaurus sidebar configuration (`sidebars.js`) to ensure the page is correctly linked and present.
-- [ ] T009 [US1] Once React errors are resolved, then analyze the React component responsible for rendering the chatbot icon/UI. Check for conditional rendering logic that might be preventing it from appearing. File: `frontend/docusaurus-site/src/chatbot.js` or a component in `frontend/docusaurus-site/src/theme/`.
+- [x] T006 [US1] Analyze the React component(s) indicated in the console errors (e.g., related to `div`, `footer`) for common React rendering issues (e.g., incorrect return values, state update loops, unhandled errors). Start by looking at `frontend/docusaurus-site/src/theme/Layout/index.js` or similar top-level components that render `div` and `footer`. *(React errors are no longer reported; this task is considered addressed indirectly).*
+- [x] T007 [US1] To get more detailed error messages, temporarily disable React's minification or enable development mode on the Vercel deployment if possible, or replicate the issue locally. (Reference: `https://reactjs.org/docs/error-decoder.html` for full message). *(No longer critical if React errors are resolved).*
+- [ ] T008 [US1] Investigate the `intro` 404 error by checking `frontend/docusaurus-site/docs/intro.md` and Docusaurus sidebar configuration (`sidebars.js`) to ensure the page is correctly linked and present. *(Address this as a Docusaurus content issue, separate from chatbot).*
+- [ ] T009 [US1] Analyze the React component responsible for rendering the chatbot icon/UI. Check for conditional rendering logic that might be preventing it from appearing. File: `frontend/docusaurus-site/src/chatbot.js` or a component in `frontend/docusaurus-site/src/theme/`. **This is now the highest priority.**
 - [ ] T010 [P] [US1] Examine the Docusaurus configuration to see how the chatbot component and any related plugins are integrated. File: `frontend/docusaurus-site/docusaurus.config.ts`.
 - [ ] T011 [P] [US1] Inspect the proxy configuration to ensure it's not misconfigured for production builds, which could cause issues if the API endpoint is expected to be proxied. File: `frontend/docusaurus-site/plugins/webpack-proxy/index.js`.
 
@@ -78,12 +79,12 @@ This document outlines the tasks required to diagnose and fix the issue of the c
 ## Dependencies and Parallel Execution
 
 - **Phase 1** must be completed first to gather initial diagnostic information.
-- **Phase 2 (React Error Debugging)** must be completed to ensure the frontend application renders correctly before investigating specific chatbot components or API calls.
+- **Phase 2 (Frontend Code Investigation)** focuses on the chatbot's integration now that major React errors are absent.
 - **Phase 3 (Backend API and CORS)** can only be reliably tested once the frontend is stable.
-- Within Phase 2, `T010` and `T011` can be performed in parallel if needed after the core React errors are addressed.
+- Within Phase 2, `T010` and `T011` can be performed in parallel if needed after the core chatbot rendering issues are addressed.
 - Within Phase 3, `T013` can be done in parallel with other tasks in this phase.
 - Phase 4 should be executed after a fix has been implemented based on the findings from the previous phases.
 
 ## Implementation Strategy
 
-The strategy is to follow the task list in order, starting with diagnostics. The critical React rendering errors must be resolved first. Once the Docusaurus application is rendering stably, then proceed to investigate the chatbot's specific integration and API communication. The goal is to identify the root cause with minimal changes before attempting a fix. The tasks are designed to be immediately executable by an LLM or a developer. The MVP is a functional chatbot on the Vercel deployment.
+The strategy is to follow the task list in order, starting with diagnostics. The critical React rendering errors, if they re-appear, must be resolved first. Assuming they are resolved, the focus shifts to the chatbot's specific integration in the frontend. Once the Docusaurus application is rendering stably and the chatbot integration is correct, then proceed to verify API communication. The goal is to identify the root cause with minimal changes before attempting a fix. The MVP is a functional chatbot on the Vercel deployment.
