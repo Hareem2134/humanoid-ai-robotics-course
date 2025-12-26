@@ -4,6 +4,5 @@ from fastapi import Depends
 from ..core.database import get_db
 from ..core.models.user import User
 
-
 async def get_user_db(session: AsyncSession = Depends(get_db)):
     yield SQLAlchemyUserDatabase(session, User)
