@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi_users import FastAPIUsers, models
-from fastapi_users.authentication import Bearer, AuthenticationBackend
+from fastapi_users.authentication import BearerTransport, AuthenticationBackend
 from fastapi_users.db import SQLAlchemyUserDatabase
 from starlette.middleware.cors import CORSMiddleware # Import CORSMiddleware
 from src.api import chat
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 # --- FastAPI Users Configuration ---
 SECRET = os.getenv("SECRET_KEY", "your-secret-key") # Use environment variable for secret key
 
-bearer_transport = Bearer(tokenUrl="auth/jwt/login")
+bearer_transport = BearerTransport(tokenUrl="auth/jwt/login")
 
 def get_jwt_strategy() -> AuthenticationBackend[DBUser, models.UUID]:
     return AuthenticationBackend(name="jwt", transport=bearer_transport, get_db_user=get_user_db)
