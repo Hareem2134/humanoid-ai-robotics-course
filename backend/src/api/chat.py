@@ -5,7 +5,7 @@ import uuid
 import logging
 
 # Import your RAG service and database functions
-from ..services.rag_service import get_rag_response
+from ..services.rag_service import chatbot_service
 from ..core.database import create_conversation, insert_message
 
 # Configure logging
@@ -41,7 +41,7 @@ async def chat_query(request: QueryRequest):
         conversation_id = request.conversation_id or create_conversation()
         insert_message(conversation_id, 'user', request.query)
         
-        answer, references = await get_rag_response(request.query)
+        answer, references = await chatbot_service.get_rag_response(request.query)
         
         insert_message(conversation_id, 'assistant', answer)
         
@@ -66,7 +66,9 @@ async def chat_query_selection(request: QueryRequest):
         query_with_context = f"Context: {request.selected_text}\nQuestion: {request.query}"
         insert_message(conversation_id, 'user', query_with_context)
 
-        answer, references = await get_rag_response(request.query, request.selected_text)
+        answer, references = await chatbot_service.get_rag_response(
+            request.query, request.selected_text
+        )
         
         insert_message(conversation_id, 'assistant', answer)
 

@@ -1,7 +1,7 @@
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTableUUID
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy import Column
-from ..database import Base
+from ..base import Base
 
 
 class User(SQLAlchemyBaseUserTableUUID, Base):

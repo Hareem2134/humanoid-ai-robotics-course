@@ -1,4 +1,6 @@
 module.exports = function (context, options) {
+  const { backendUrl } = context.siteConfig.customFields;
+
   return {
     name: "custom-webpack-proxy-plugin",
     configureWebpack(config, isServer, utils) {
@@ -10,11 +12,10 @@ module.exports = function (context, options) {
           proxy: [
             {
               context: ['/api'],
-              target: 'http://127.0.0.1:8000',
+              target: backendUrl,
               secure: false,
               changeOrigin: true,
               logLevel: 'debug',
-              pathRewrite: { '^/api/v1': '' },
             },
           ],
         },

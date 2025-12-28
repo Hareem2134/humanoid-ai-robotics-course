@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
-from ..database import Base
+from ..base import Base
 from sqlalchemy.sql import func
 
 class Conversation(Base):

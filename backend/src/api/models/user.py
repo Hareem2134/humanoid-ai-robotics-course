@@ -1,7 +1,8 @@
+import uuid
 from fastapi_users import schemas
 from typing import Optional, Dict, Any
 
-class UserRead(schemas.BaseUser[schemas.UUID]):
+class UserRead(schemas.BaseUser[uuid.UUID]):
     background_data: Optional[Dict[str, Any]] = None
 
 class UserCreate(schemas.BaseUserCreate):

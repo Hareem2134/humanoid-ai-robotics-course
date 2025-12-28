@@ -48,7 +48,12 @@ function Chatbot() {
     setReferences([]);
 
     const endpoint = selectedText ? '/api/v1/chat/query_selection' : '/api/v1/chat/query';
-    const body = selectedText ? JSON.stringify({ query, selected_text: selectedText }) : JSON.stringify({ query });
+    const body = selectedText
+      ? { query, selected_text: selectedText }
+      : { query };
+
+    console.log("Submitting to endpoint:", endpoint);
+    console.log("Request body:", body);
 
     try {
       const response = await fetch(endpoint, {
@@ -56,8 +61,10 @@ function Chatbot() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: body,
+        body: JSON.stringify(body),
       });
+
+      console.log("Response status:", response.status);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

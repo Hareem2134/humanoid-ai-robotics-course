@@ -1,21 +1,49 @@
+# Frontend Docusaurus Site
 
-# Docusaurus Site Frontend
+This directory contains the Docusaurus-based frontend for the Humanoid AI & Robotics Textbook. The chatbot UI is integrated as a React component within this site.
 
-This directory contains the frontend for the RAG chatbot, which is a Docusaurus site.
+## Quickstart
 
-## Setup
+### 1. Environment Setup
 
-1.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
+This project uses Node.js. Please ensure you have Node.js version 20.0 or higher installed.
 
-## Usage
+### 2. Install Dependencies
 
-To start the development server, use the following command:
+Install the required Node.js packages using `npm` or `yarn`.
+
+Using npm:
 ```bash
-npm start
+npm install
 ```
-The site will be available at `http://localhost:3000`.
 
-The chatbot UI will be available on all pages of the site.
+Or using yarn:
+```bash
+yarn install
+```
+
+### 3. Environment Variables (for connecting to backend)
+
+The frontend needs to know the URL of the backend API. While the development server uses a proxy, the production build will use this variable.
+
+- Create a `.env` file in this directory (`frontend/docusaurus-site`).
+- Add the following variable, pointing to your deployed backend URL:
+  ```
+  BACKEND_URL=http://localhost:8000
+  ```
+  For development, `http://localhost:8000` is sufficient as the proxy will handle requests.
+
+### 4. Running the Development Server
+
+Start the Docusaurus development server to view the site and test changes.
+
+```bash
+npm run start
+```
+
+Or with yarn:
+```bash
+yarn start
+```
+
+The website will be available at `http://localhost:3000`. The development server will automatically proxy API requests from `/api` to the backend running at `http://localhost:8000` (as configured in `plugins/webpack-proxy`).

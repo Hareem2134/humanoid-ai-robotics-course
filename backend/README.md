@@ -1,34 +1,64 @@
+# Backend Service for RAG Chatbot
 
-# RAG Chatbot Backend
+This directory contains the FastAPI backend for the Humanoid AI & Robotics Textbook's RAG (Retrieval-Augmented Generation) chatbot.
 
-This directory contains the backend for the RAG chatbot. It is built with FastAPI and uses a Neon Serverless Postgres database, and Qdrant Cloud for vector storage.
+## Quickstart
 
-## Setup
+### 1. Environment Setup
 
-1.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+This project uses Python 3.9+. It is recommended to use a virtual environment.
 
-2.  **Configure Environment Variables:**
-    Create a `.env` file in this directory and add the following environment variables:
-    ```
-    OPENAI_API_KEY=your_openai_api_key_here
-    NEON_DATABASE_URL=your_neon_postgres_database_url_here
-    QDRANT_URL=your_qdrant_cloud_url_here
-    QDRANT_API_KEY=your_qdrant_api_key_here
-    ```
-
-3.  **Run the Ingestion Script:**
-    This script will load the book content, create embeddings, and store them in Qdrant and Postgres.
-    ```bash
-    python scripts/ingestion_script.py
-    ```
-
-## Usage
-
-To run the backend server, use the following command:
 ```bash
-uvicorn src.main:app --reload
+# Create a virtual environment
+python -m venv .venv
+
+# Activate the virtual environment
+# On Windows
+.venv\Scripts\activate
+# On macOS/Linux
+source .venv/bin/activate
 ```
-The server will be available at `http://127.0.0.1:8000`.
+
+### 2. Install Dependencies
+
+Install the required Python packages from `requirements.txt`.
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Environment Variables
+
+The backend requires several environment variables for configuration, including database credentials and API keys.
+
+- Copy the example `.env.example` file to a new file named `.env`:
+  ```bash
+  cp .env.example .env
+  ```
+- Open the `.env` file and add your specific credentials for the following:
+  - `SECRET_KEY`: A strong, unique secret key for signing JWTs.
+  - `DATABASE_URL`: The connection string for your PostgreSQL database.
+  - `QDRANT_URL`: The URL for your Qdrant vector database instance.
+  - `QDRANT_API_KEY`: The API key for your Qdrant instance.
+  - `OPENAI_API_KEY`: Your API key for the OpenAI service.
+
+### 4. Data Ingestion
+
+The RAG model relies on a vector database populated with the textbook's content. A script is provided to handle this ingestion process.
+
+- **Important**: Before running, ensure your Qdrant instance is running and accessible.
+- Run the ingestion script:
+  ```bash
+  python -m scripts.ingestion_script
+  ```
+  This will process the source documents, create embeddings, and store them in the Qdrant collection specified in the script (default: `ai_robotics_textbook`).
+
+### 5. Running the Application
+
+Once the setup is complete, you can start the FastAPI server using Uvicorn.
+
+```bash
+uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+The API will be available at `http://localhost:8000`.

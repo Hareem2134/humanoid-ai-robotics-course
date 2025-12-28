@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi_users import FastAPIUsers, models
-from fastapi_users.authentication import BearerTransport, AuthenticationBackend
+from fastapi_users.authentication import BearerTransport, AuthenticationBackend, JWTStrategy
 from fastapi_users.db import SQLAlchemyUserDatabase
 from starlette.middleware.cors import CORSMiddleware # Import CORSMiddleware
 from src.api import chat
@@ -18,17 +18,19 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # --- FastAPI Users Configuration ---
-SECRET = os.getenv("SECRET_KEY", "your-secret-key") # Use environment variable for secret key
+SECRET = os.getenv("SECRET_KEY")
+if not SECRET:
+    raise ValueError("SECRET_KEY environment variable not set.")
 
 bearer_transport = BearerTransport(tokenUrl="auth/jwt/login")
 
-def get_jwt_strategy() -> AuthenticationBackend[DBUser, models.UUID]:
-    return AuthenticationBackend(name="jwt", transport=bearer_transport, get_db_user=get_user_db)
+def get_jwt_strategy() -> JWTStrategy:
+    return JWTStrategy(secret=SECRET, lifetime_seconds=3600)
 
 auth_backend = AuthenticationBackend(
     name="jwt",
     transport=bearer_transport,
-    get_db_user=get_user_db,
+    get_strategy=get_jwt_strategy,
 )
 
 
@@ -37,10 +39,25 @@ fastapi_users = FastAPIUsers[DBUser, models.UUID](
     [auth_backend],
 )
 
+from contextlib import asynccontextmanager
+from src.services.rag_service import chatbot_service
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    print("Starting up...")
+    chatbot_service.initialize()
+    yield
+    # Shutdown
+    print("Shutting down...")
+
+
 app = FastAPI(
     title="RAG Chatbot API",
     description="API for interacting with the RAG chatbot embedded in the Physical AI & Humanoid Robotics Textbook.",
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 # --- CORS Middleware ---

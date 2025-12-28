@@ -1,93 +1,108 @@
-import os
-from typing import List, Tuple
 import logging
-from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Qdrant as LangchainQdrant
-from langchain_classic.chains import RetrievalQA
-from langchain_core.prompts import PromptTemplate
-from qdrant_client import QdrantClient
-from openai import OpenAI
+from typing import List, Tuple, Dict, Any
+from operator import itemgetter
 
-# Assuming get_qdrant_client from core.qdrant and get_openai_client from core.openai
+from langchain_community.vectorstores import Qdrant as LangchainQdrant
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
+from langchain_core.output_parsers import StrOutputParser
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+
 from ..core.qdrant import get_qdrant_client
-from ..core.openai import get_openai_client
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def get_rag_chain(collection_name: str = "ai_robotics_textbook"):
-    """
-    Initializes and returns a RAG (Retrieval-Augmented Generation) chain
-    for answering general queries based on the textbook content.
 
-    Args:
-        collection_name (str): The name of the Qdrant collection to use.
+def format_docs(docs: List[Any]) -> str:
+    """Helper function to format retrieved documents into a string."""
+    return "\n\n".join(doc.page_content for doc in docs)
 
-    Returns:
-        RetrievalQA: A configured LangChain RetrievalQA chain.
-    """
-    logger.info("Initializing RAG chain...")
-    # 1. Initialize Embeddings and Vector Store
-    embeddings = OpenAIEmbeddings()
-    qdrant_client = get_qdrant_client()
-    
-    vectorstore = LangchainQdrant(
-        client=qdrant_client,
-        collection_name=collection_name,
-        embeddings=embeddings,
-    )
+class ChatbotService:
+    def __init__(self, collection_name: str = "ai_robotics_textbook"):
+        self.lcel_chain = None
+        self._collection_name = collection_name
+        self.retriever = None
 
-    # 2. Initialize LLM
-    llm = get_openai_client()
+    def initialize(self):
+        """
+        Initializes the RAG chain using manual LCEL. This should be called once at application startup.
+        """
+        logger.info("Initializing RAG chain with MANUAL LCEL...")
 
-    # 3. Define Prompt Template
-    prompt_template = """Use the following pieces of context to answer the question at the end.
-    If you don't know the answer, just say that you don't know, don't try to make up an answer.
-    
-    {context}
-    
-    Question: {question}
-    """
-    PROMPT = PromptTemplate(
-        template=prompt_template, input_variables=["context", "question"]
-    )
+        # 1. Initialize LLM and Embeddings
+        llm = ChatOpenAI(temperature=0.7, model_name="gpt-3.5-turbo")
+        embeddings = OpenAIEmbeddings()
 
-    # 4. Create RetrievalQA chain
-    qa_chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=vectorstore.as_retriever(),
-        return_source_documents=True,
-        chain_type_kwargs={"prompt": PROMPT}
-    )
-    logger.info("RAG chain initialized successfully.")
-    return qa_chain
+        # 2. Initialize Vector Store and Retriever
+        qdrant_client = get_qdrant_client()
+        vectorstore = LangchainQdrant(
+            client=qdrant_client,
+            collection_name=self._collection_name,
+            embeddings=embeddings,
+        )
+        self.retriever = vectorstore.as_retriever()
 
-async def get_rag_response(query: str, selected_text: str = None) -> Tuple[str, List[str]]:
-    """
-    Handles a query using the RAG service, with optional selected text as context.
+        # 3. Define System Prompt Template
+        template = (
+            "You are an assistant for question-answering tasks. "
+            "Use the following pieces of retrieved context to answer the question. "
+            "If you don't know the answer, just say that you don't know. "
+            "Use three sentences maximum and keep the answer concise.\n\n"
+            "Context: {context}\n\n"
+            "Question: {question}\n\n"
+            "Answer:"
+        )
+        prompt = ChatPromptTemplate.from_template(template)
 
-    Args:
-        query (str): The user's question.
-        selected_text (str, optional): Text selected by the user to provide additional context. Defaults to None.
+        # 4. Manually construct the LCEL chain
+        self.lcel_chain = (
+            {
+                "context": itemgetter("question") | self.retriever | RunnableLambda(format_docs),
+                "question": itemgetter("question"),
+            }
+            | prompt
+            | llm
+            | StrOutputParser()
+        )
 
-    Returns:
-        Tuple[str, List[str]]: A tuple containing the answer string and a list of reference URLs.
-    """
-    rag_chain = get_rag_chain()
-    
-    # If selected_text is provided, prepend it to the query for context
-    if selected_text:
-        query_with_context = f"Context: {selected_text}\nQuestion: {query}"
-    else:
-        query_with_context = query
+        logger.info("MANUAL LCEL RAG chain initialized successfully.")
 
-    logger.info(f"Executing RAG chain with query: {query_with_context}")
-    result = rag_chain.invoke({"query": query_with_context})
-    
-    answer = result["result"]
-    references = [doc.metadata.get("source", "N/A") for doc in result["source_documents"]]
-    
-    logger.info(f"RAG chain returned answer: {answer}")
-    return answer, references
+    async def get_rag_response(
+        self, query: str, selected_text: str = None
+    ) -> Tuple[str, List[str]]:
+        """
+        Handles a query using the RAG service, with optional selected text as context.
+
+        Args:
+            query (str): The user's question.
+            selected_text (str, optional): Text selected by the user to provide additional context.
+
+        Returns:
+            Tuple[str, List[str]]: A tuple containing the answer string and a list of reference URLs.
+        """
+        if not self.lcel_chain or not self.retriever:
+            raise RuntimeError("RAG chain is not initialized. Please call initialize() first.")
+
+        input_query = (
+            f"Context from user selection: {selected_text}\nQuestion: {query}"
+            if selected_text
+            else query
+        )
+
+        logger.info(f"Executing MANUAL LCEL RAG chain with input: {input_query}")
+
+        # Since we built the chain manually, we also retrieve context manually for references
+        context_docs = await self.retriever.ainvoke(input_query)
+        references = [doc.metadata.get("source", "N/A") for doc in context_docs]
+        
+        # Invoke the main chain to get the answer
+        answer = await self.lcel_chain.ainvoke({"question": input_query})
+
+        logger.info(f"RAG chain returned answer: {answer}")
+        return answer, references
+
+
+# Create a single, shared instance of the chatbot service
+chatbot_service = ChatbotService()
