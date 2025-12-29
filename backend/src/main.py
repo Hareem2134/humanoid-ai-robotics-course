@@ -75,7 +75,7 @@ app.add_middleware(
 )
 
 
-app.include_router(chat.router, prefix="/api/v1")
+app.include_router(chat.router, prefix="/api")
 
 # --- FastAPI Users Routers ---
 app.include_router(
