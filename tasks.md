@@ -1,86 +1,74 @@
 ---
-feature: "Debug and Fix Chatbot"
+feature: "Debug Chatbot Something went wrong! Error"
 version: "1.0"
 ---
 
 ## Overview
 
-This document outlines the tasks required to debug and fix the chatbot functionality. The chatbot UI is currently not visible, and the backend API calls might be failing. This plan addresses both the frontend rendering and the backend routing issues. It also provides an optional path to switch to a free Large Language Model (LLM) provider.
+This document outlines the tasks required to debug and fix the "Something went wrong!" error in the chatbot. The error appears when a user asks a question, and it seems to be related to the text selection feature. This plan includes frontend improvements for better error reporting and user experience, as well as backend enhancements for more detailed logging and startup checks to pinpoint the root cause of the issue.
 
 ## Implementation Strategy
 
-The implementation is divided into four phases:
-1.  **Frontend Fixes:** Correctly render the chatbot component in the Docusaurus application.
-2.  **Backend Fixes:** Fix the API routing to ensure the frontend can communicate with the backend.
-3.  **Verification:** Verify that the chatbot is fully functional.
-4.  **Optional LLM Switch:** (Optional) Replace the OpenAI LLM with a free alternative from Hugging Face.
+The implementation is divided into three phases:
+1.  **Frontend Fixes:** Improve the text selection mechanism and error handling in the chatbot's UI.
+2.  **Backend Debugging:** Enhance the backend with more detailed logging and startup checks for external services.
+3.  **Verification and Diagnosis:** Test the chatbot with the new fixes and use the enhanced logging to identify and resolve the underlying issue.
 
-This phased approach ensures that we first restore the basic functionality and then consider enhancements.
+This approach will first improve the user-facing aspects of the chatbot and then provide the necessary tools to diagnose and fix the core problem.
 
 ## Dependencies
 
-The phases are designed to be executed sequentially. Phase 2 depends on Phase 1, and Phase 3 depends on Phase 2. Phase 4 is independent and can be executed after Phase 3.
+The phases are designed to be executed sequentially.
 
 ---
 
 ## Phase 1: Frontend Fixes
 
-**Goal:** Correctly render the chatbot component in the user interface.
+**Goal:** Improve the usability of the text selection feature and provide more specific error messages to the user.
 
 **Independent Test Criteria:**
-*   The chatbot window should be visible on all pages of the Docusaurus site.
+*   Accidental text selections should not trigger the "Selected Text" UI in the chatbot.
+*   The user should have a way to clear a selected text.
+*   If the backend returns an error, the specific error message should be displayed in the chatbot UI.
 
 ### Tasks
 
-- [ ] T001 [US1] Create a `ChatbotContext.js` file to manage the chatbot's state in `frontend/docusaurus-site/src/contexts/ChatbotContext.js`.
-- [ ] T002 [US1] Modify `frontend/docusaurus-site/src/theme/Root.js` to wrap the application with the `ChatbotProvider` and render the `Chatbot` component.
-- [ ] T003 [US1] Remove the redundant `chatbot-plugin` from `frontend/docusaurus-site/docusaurus.config.ts`.
-- [ ] T004 [US1] Clean up `frontend/docusaurus-site/src/theme/Layout/index.js` by removing the redundant `AuthProvider`.
+- [ ] T001 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, modify the `handleMouseUp` function to only consider text selections with a minimum length (e.g., >10 characters).
+- [ ] T002 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, add a "Clear" button to the UI that allows the user to dismiss the selected text.
+- [ ] T003 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, enhance the `handleSubmit` function to parse the JSON error response from the backend and display the specific error message.
+- [ ] T004 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.module.css`, add styling for the new "Clear" button.
 
 ---
 
-## Phase 2: Backend Fixes
+## Phase 2: Backend Debugging
 
-**Goal:** Fix the API routing to enable communication between the frontend and backend.
+**Goal:** Add detailed logging and startup checks to the backend to help diagnose the root cause of the error.
 
 **Independent Test Criteria:**
-*   The frontend should receive a successful response (HTTP 200) from the backend when making a request to the chatbot API.
+*   When the backend server starts, it should log whether the connections to Qdrant and OpenAI were successful.
+*   If an error occurs within the RAG chain, the specific error should be logged with a stack trace.
 
 ### Tasks
 
-- [ ] T005 [US2] In `backend/src/main.py`, change the API prefix for the chat router from `/api/v1` to `/api` to match the frontend requests.
+- [ ] T005 [US2] In `backend/src/services/rag_service.py`, wrap the `ainvoke` calls for the retriever and the RAG chain in `try...except` blocks to log any exceptions that occur.
+- [ ] T006 [US2] In `backend/src/main.py`, modify the `lifespan` startup event handler to include checks for the connections to Qdrant and OpenAI. The application should log detailed success or error messages for these checks.
 
 ---
 
-## Phase 3: Verification
+## Phase 3: Verification and Diagnosis
 
-**Goal:** Ensure the chatbot is fully functional.
+**Goal:** Test the chatbot with the new fixes and use the enhanced logging to identify and resolve the underlying issue.
 
 **Independent Test Criteria:**
-*   Sending a message in the chatbot should result in a response from the LLM being displayed.
-*   The browser's developer console should not show any errors related to the chatbot.
+*   The chatbot should respond to questions without throwing a "Something went wrong!" error.
+*   If an error still occurs, the backend logs should contain a specific error message that points to the root cause (e.g., invalid API key, network issue, etc.).
 
 ### Tasks
 
-- [ ] T006 [US3] Start the frontend and backend development servers.
-- [ ] T007 [US3] Open the website in a browser and verify that the chatbot UI is visible.
-- [ ] T008 [US3] Send a test message to the chatbot and verify that a response is received.
-- [ ] T009 [US3] Check the browser's developer console for any errors.
-- [ ] T010 [US3] Check the backend server logs to ensure that requests are being received and processed correctly.
-
----
-
-## Phase 4: (Optional) Switch to a Free LLM
-
-**Goal:** Replace the OpenAI LLM with a free alternative from Hugging Face.
-
-**Independent Test Criteria:**
-*   The chatbot should function correctly using a model from the Hugging Face Inference API.
-
-### Tasks
-
-- [ ] T011 [US4] Sign up for a Hugging Face account and get an API token.
-- [ ] T012 [US4] Add the Hugging Face API token to your backend environment variables (e.g., in a `.env` file as `HUGGINGFACEHUB_API_TOKEN`).
-- [ ] T013 [US4] Modify `backend/src/services/rag_service.py` to use `HuggingFaceHub` from `langchain_community.llms` instead of `ChatOpenAI`. You will need to import it and instantiate it with your API token.
-- [ ] T014 [US4] Choose a suitable model from the Hugging Face Hub (e.g., `mistralai/Mistral-7B-Instruct-v0.2`) and configure `HuggingFaceHub` to use it.
-- [ ] T015 [US4] Restart the backend server and test the chatbot.
+- [ ] T007 [US3] Restart the backend server and check the startup logs for any connection errors to Qdrant or OpenAI. Address any reported issues (e.g., by correcting environment variables).
+- [ ] T008 [US3] Start the frontend development server.
+- [ ] T009 [US3] Test the chatbot by asking a question. If the error persists, check the backend logs for the detailed error message that was added in Phase 2.
+- [ ] T010 [US3] Based on the error message, take the appropriate action. This might involve:
+    - Correcting the `OPENAI_API_KEY` environment variable.
+    - Checking the network connection to the Qdrant database.
+    - Further debugging the LangChain components based on the logged error.

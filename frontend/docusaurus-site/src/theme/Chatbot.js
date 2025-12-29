@@ -13,7 +13,7 @@ const Chatbot = () => {
   useEffect(() => {
     const handleMouseUp = () => {
       const selection = window.getSelection().toString();
-      if (selection) {
+      if (selection && selection.trim().length > 10) {
         setSelectedText(selection);
       }
     };
@@ -47,7 +47,8 @@ const Chatbot = () => {
       });
 
       if (!res.ok) {
-        throw new Error('Something went wrong!');
+        const errorData = await res.json().catch(() => ({ message: 'Something went wrong!' }));
+        throw new Error(errorData.message || 'Something went wrong!');
       }
 
       const data = await res.json();
@@ -58,8 +59,12 @@ const Chatbot = () => {
     } finally {
       setLoading(false);
       setQuery('');
-      setSelectedText('');
+      // Keep selectedText so the user can ask another question about it
     }
+  };
+
+  const clearSelection = () => {
+    setSelectedText('');
   };
 
   return (
@@ -77,6 +82,7 @@ const Chatbot = () => {
       {selectedText && (
         <div className={styles.selectedTextContainer}>
           <p><strong>Selected Text:</strong> {selectedText}</p>
+          <button onClick={clearSelection} className={styles.clearButton}>Clear</button>
         </div>
       )}
       <form onSubmit={handleSubmit} className={styles.chatbotForm}>

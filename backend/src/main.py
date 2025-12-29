@@ -41,12 +41,34 @@ fastapi_users = FastAPIUsers[DBUser, models.UUID](
 
 from contextlib import asynccontextmanager
 from src.services.rag_service import chatbot_service
-
+from src.core.qdrant import get_qdrant_client
+from openai import OpenAI
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
     print("Starting up...")
+    
+    # Check Qdrant connection
+    try:
+        qdrant_client = get_qdrant_client()
+        qdrant_client.get_collections()
+        logger.info("Successfully connected to Qdrant.")
+    except Exception as e:
+        logger.error(f"Failed to connect to Qdrant: {e}", exc_info=True)
+        # Depending on the desired behavior, you might want to raise the exception
+        # to prevent the application from starting with a broken dependency.
+        # raise e 
+
+    # Check OpenAI connection
+    try:
+        client = OpenAI()
+        client.models.list()
+        logger.info("Successfully connected to OpenAI.")
+    except Exception as e:
+        logger.error(f"Failed to connect to OpenAI. Please check your OPENAI_API_KEY: {e}", exc_info=True)
+        # raise e
+
     chatbot_service.initialize()
     yield
     # Shutdown

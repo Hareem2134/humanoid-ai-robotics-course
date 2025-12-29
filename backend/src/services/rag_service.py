@@ -93,12 +93,20 @@ class ChatbotService:
 
         logger.info(f"Executing MANUAL LCEL RAG chain with input: {input_query}")
 
-        # Since we built the chain manually, we also retrieve context manually for references
-        context_docs = await self.retriever.ainvoke(input_query)
-        references = [doc.metadata.get("source", "N/A") for doc in context_docs]
-        
-        # Invoke the main chain to get the answer
-        answer = await self.lcel_chain.ainvoke({"question": input_query})
+        try:
+            # Since we built the chain manually, we also retrieve context manually for references
+            context_docs = await self.retriever.ainvoke(input_query)
+            references = [doc.metadata.get("source", "N/A") for doc in context_docs]
+        except Exception as e:
+            logger.error(f"Error retrieving documents from Qdrant: {e}", exc_info=True)
+            raise RuntimeError("Failed to retrieve documents from the vector store.") from e
+
+        try:
+            # Invoke the main chain to get the answer
+            answer = await self.lcel_chain.ainvoke({"question": input_query})
+        except Exception as e:
+            logger.error(f"Error invoking the RAG chain: {e}", exc_info=True)
+            raise RuntimeError("Failed to get a response from the RAG chain.") from e
 
         logger.info(f"RAG chain returned answer: {answer}")
         return answer, references
