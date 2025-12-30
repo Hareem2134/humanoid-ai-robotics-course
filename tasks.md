@@ -1,30 +1,28 @@
 ---
-feature: "Refactor Chatbot State Management"
+feature: "Final Chatbot Bug Fix Attempt"
 version: "1.0"
 ---
 
 ## Overview
 
-This document outlines the tasks required to refactor the state management of the chatbot component. The existing state management using multiple `useState` hooks has led to several bugs related to state updates and race conditions. This refactoring will switch to using the `useReducer` hook to make the state management more robust, predictable, and easier to debug.
+This document outlines the tasks for a final attempt to fix the persistent UI bug in the chatbot. Despite previous fixes, the UI is still not updating correctly. This plan focuses on improving the stability of the component's rendering by introducing unique and stable keys for the chat messages.
 
 ## Implementation Strategy
 
-The implementation consists of a single phase to refactor the `Chatbot.js` component.
+The implementation consists of a single phase to fix the frontend bug.
 
 ---
 
-## Phase 1: Refactor to `useReducer`
+## Phase 1: Frontend Bug Fix
 
-**Goal:** Replace the `useState` hooks in `Chatbot.js` with a single `useReducer` to centralize and streamline state management.
+**Goal:** Ensure stable and predictable rendering of the chat history by providing unique keys to each message.
 
 **Independent Test Criteria:**
-*   The chatbot should remain fully functional with no regressions in behavior.
-*   The code should be cleaner and the state transitions easier to follow.
+*   The chatbot should function correctly without any of the previously reported UI glitches (stale errors, delayed updates).
 
 ### Tasks
 
-- [ ] T001 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, define an `initialState` object that holds all the component's state.
-- [ ] T002 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, create a `chatbotReducer` function that handles all state transitions based on dispatched actions.
-- [ ] T003 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, replace the multiple `useState` calls with a single `useReducer` call that uses the new reducer and initial state.
-- [ ] T004 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, update the `handleSubmit`, `clearSelection`, and `onChange` handlers to dispatch actions to the reducer instead of calling individual state setter functions.
-- [ ] T005 [US1] Thoroughly test the chatbot to ensure that all functionality (sending messages, selecting text, error handling) works as expected after the refactoring.
+- [ ] T001 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, introduce a `useRef` hook to act as a persistent counter for generating unique message IDs.
+- [ ] T002 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, modify the `handleSubmit` function and the reducer to add a unique ID to each new message (both user and bot) that is added to the `history` state.
+- [ ] T003 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, update the `history.map` function in the JSX to use the new unique ID as the `key` for each message element.
+- [ ] T004 [US1] Thoroughly test the chatbot to confirm that the UI updates correctly and the "something went wrong" error, followed by a delayed update, is resolved.

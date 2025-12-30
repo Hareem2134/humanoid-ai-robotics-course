@@ -1,5 +1,5 @@
 
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useRef } from 'react';
 import styles from './Chatbot.module.css';
 
 const initialState = {
@@ -25,7 +25,7 @@ function chatbotReducer(state, action) {
     case 'CLEAR_SELECTION':
       return { ...state, selectedText: '' };
     case 'SUBMIT_QUERY':
-      return { ...state, loading: true, error: '', history: [...state.history, { sender: 'user', text: state.query }], query: '' };
+      return { ...state, loading: true, error: '', history: [...state.history, action.payload], query: '' };
     default:
       throw new Error();
   }
@@ -34,6 +34,7 @@ function chatbotReducer(state, action) {
 const Chatbot = () => {
   const [state, dispatch] = useReducer(chatbotReducer, initialState);
   const { query, history, selectedText, loading, error } = state;
+  const messageIdCounter = useRef(0);
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -54,7 +55,8 @@ const Chatbot = () => {
     e.preventDefault();
     if (!query) return;
 
-    dispatch({ type: 'SUBMIT_QUERY' });
+    const userMessage = { id: messageIdCounter.current++, sender: 'user', text: query };
+    dispatch({ type: 'SUBMIT_QUERY', payload: userMessage });
 
     try {
       const requestBody = { 
@@ -76,7 +78,8 @@ const Chatbot = () => {
       }
 
       const data = await res.json();
-      dispatch({ type: 'ADD_TO_HISTORY', payload: { sender: 'bot', text: data.answer } });
+      const botMessage = { id: messageIdCounter.current++, sender: 'bot', text: data.answer };
+      dispatch({ type: 'ADD_TO_HISTORY', payload: botMessage });
     } catch (err) {
       dispatch({ type: 'SET_ERROR', payload: err.message });
     } finally {
@@ -91,8 +94,8 @@ const Chatbot = () => {
   return (
     <div className={styles.chatbotContainer}>
       <div className={styles.chatbotHistory}>
-        {history.map((item, index) => (
-          <div key={index} className={styles[item.sender]}>
+        {history.map((item) => (
+          <div key={item.id} className={styles[item.sender]}>
             <p>{item.text}</p>
           </div>
         ))}
