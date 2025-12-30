@@ -1,20 +1,45 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import styles from './Chatbot.module.css';
 
+const initialState = {
+  query: '',
+  history: [],
+  selectedText: '',
+  loading: false,
+  error: '',
+};
+
+function chatbotReducer(state, action) {
+  switch (action.type) {
+    case 'SET_QUERY':
+      return { ...state, query: action.payload };
+    case 'ADD_TO_HISTORY':
+      return { ...state, history: [...state.history, action.payload] };
+    case 'SET_LOADING':
+      return { ...state, loading: action.payload };
+    case 'SET_ERROR':
+      return { ...state, error: action.payload, loading: false };
+    case 'SET_SELECTED_TEXT':
+      return { ...state, selectedText: action.payload };
+    case 'CLEAR_SELECTION':
+      return { ...state, selectedText: '' };
+    case 'SUBMIT_QUERY':
+      return { ...state, loading: true, error: '', history: [...state.history, { sender: 'user', text: state.query }], query: '' };
+    default:
+      throw new Error();
+  }
+}
+
 const Chatbot = () => {
-  const [query, setQuery] = useState('');
-  const [response, setResponse] = useState('');
-  const [history, setHistory] = useState([]);
-  const [selectedText, setSelectedText] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [state, dispatch] = useReducer(chatbotReducer, initialState);
+  const { query, history, selectedText, loading, error } = state;
 
   useEffect(() => {
     const handleMouseUp = () => {
       const selection = window.getSelection().toString();
       if (selection && selection.trim().length > 10) {
-        setSelectedText(selection);
+        dispatch({ type: 'SET_SELECTED_TEXT', payload: selection });
       }
     };
 
@@ -29,8 +54,7 @@ const Chatbot = () => {
     e.preventDefault();
     if (!query) return;
 
-    setLoading(true);
-    setError('');
+    dispatch({ type: 'SUBMIT_QUERY' });
 
     try {
       const requestBody = { 
@@ -48,36 +72,32 @@ const Chatbot = () => {
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({ message: 'Something went wrong!' }));
-        throw new Error(errorData.message || 'Something went wrong!');
+        throw new Error(errorData.detail || 'Something went wrong!');
       }
 
       const data = await res.json();
-      setResponse(data.answer);
-      setHistory([...history, { query, answer: data.answer }]);
+      dispatch({ type: 'ADD_TO_HISTORY', payload: { sender: 'bot', text: data.answer } });
     } catch (err) {
-      setError(err.message);
+      dispatch({ type: 'SET_ERROR', payload: err.message });
     } finally {
-      setLoading(false);
-      setQuery('');
-      // Keep selectedText so the user can ask another question about it
+      dispatch({ type: 'SET_LOADING', payload: false });
     }
   };
 
   const clearSelection = () => {
-    setSelectedText('');
+    dispatch({ type: 'CLEAR_SELECTION' });
   };
 
   return (
     <div className={styles.chatbotContainer}>
       <div className={styles.chatbotHistory}>
         {history.map((item, index) => (
-          <div key={index}>
-            <p><strong>You:</strong> {item.query}</p>
-            <p><strong>Bot:</strong> {item.answer}</p>
+          <div key={index} className={styles[item.sender]}>
+            <p>{item.text}</p>
           </div>
         ))}
-        {loading && <p>Loading...</p>}
-        {error && <p><strong>Error:</strong> {error}</p>}
+        {loading && <div className={styles.bot}><p>Thinking...</p></div>}
+        {error && <div className={styles.error}><p>Error: {error}</p></div>}
       </div>
       {selectedText && (
         <div className={styles.selectedTextContainer}>
@@ -89,7 +109,7 @@ const Chatbot = () => {
         <input
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => dispatch({ type: 'SET_QUERY', payload: e.target.value })}
           placeholder="Ask a question..."
           className={styles.chatbotInput}
           disabled={loading}

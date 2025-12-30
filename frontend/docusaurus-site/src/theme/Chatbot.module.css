@@ -60,3 +60,39 @@
 .clearButton:hover {
   background-color: #c82333;
 }
+
+.user {
+  text-align: right;
+  margin: 5px 0;
+}
+
+.user p {
+  display: inline-block;
+  padding: 10px;
+  background-color: #dcf8c6;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.bot {
+  text-align: left;
+  margin: 5px 0;
+}
+
+.bot p {
+  display: inline-block;
+  padding: 10px;
+  background-color: #f1f0f0;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.error {
+  text-align: left;
+  margin: 5px 0;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px;
+  border-radius: 10px;
+}
