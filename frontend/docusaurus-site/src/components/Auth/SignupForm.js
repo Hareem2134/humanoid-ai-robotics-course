@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { signup } from '../../utils/api'; // Import the signup API function
 
-function SignupForm({ onSignupSuccess }) { // Accept onSignupSuccess as a prop
+function SignupForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const { siteConfig } = useDocusaurusContext();
@@ -16,28 +15,14 @@ function SignupForm({ onSignupSuccess }) { // Accept onSignupSuccess as a prop
     setError(null);
     setSuccess(null);
 
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
-    }
-
     try {
       const response = await signup(backendUrl, email, password); // Use the signup API function
 
-      const data = await response.json();
-
       if (response.ok) {
-        setSuccess('Registration successful!');
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-        if (onSignupSuccess) {
-            onSignupSuccess(email, password); // Call the prop function
-        }
-        // Optionally redirect to signin page
-        // window.location.href = '/signin';
+        setSuccess('Signup successful! You can now sign in.');
       } else {
-        setError(data.detail || 'Registration failed.');
+        const data = await response.json();
+        setError(data.detail || 'Signup failed.');
       }
     } catch (err) {
       setError('Network error or server unavailable.');
@@ -66,16 +51,6 @@ function SignupForm({ onSignupSuccess }) { // Accept onSignupSuccess as a prop
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </div>

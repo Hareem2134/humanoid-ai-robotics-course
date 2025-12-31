@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthProvider } from '../contexts/useAuth';
+import { AuthProvider } from '../contexts/AuthContext';
 import { ChatbotProvider } from '../contexts/ChatbotContext';
 import Chatbot from './Chatbot';
 

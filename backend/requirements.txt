@@ -12,3 +12,4 @@ fastapi-users[sqlalchemy]
 SQLAlchemy
 pydantic[email]
 asyncpg
+requests

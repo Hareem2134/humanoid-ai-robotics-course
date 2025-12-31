@@ -1,28 +1,32 @@
 ---
-feature: "Final Chatbot Bug Fix Attempt"
+feature: "Debug Backend with a Test Script"
 version: "1.0"
 ---
 
 ## Overview
 
-This document outlines the tasks for a final attempt to fix the persistent UI bug in the chatbot. Despite previous fixes, the UI is still not updating correctly. This plan focuses on improving the stability of the component's rendering by introducing unique and stable keys for the chat messages.
+This document provides instructions on how to use a newly created test script to diagnose the issue with the chatbot's backend. The test script will allow us to test the backend API independently of the frontend, which will help to isolate the problem.
 
 ## Implementation Strategy
 
-The implementation consists of a single phase to fix the frontend bug.
+This is a debugging task. The goal is to run the backend server and the test script, and to analyze the output to find the root cause of the "something went wrong!" error.
 
 ---
 
-## Phase 1: Frontend Bug Fix
+## Phase 1: Backend Testing
 
-**Goal:** Ensure stable and predictable rendering of the chat history by providing unique keys to each message.
+**Goal:** Use the test script to identify the source of the error in the backend.
 
 **Independent Test Criteria:**
-*   The chatbot should function correctly without any of the previously reported UI glitches (stale errors, delayed updates).
+*   A successful run of the test script should return a JSON response with the chatbot's answer.
+*   A failed run should provide a specific error message that will help to pinpoint the problem.
 
 ### Tasks
 
-- [ ] T001 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, introduce a `useRef` hook to act as a persistent counter for generating unique message IDs.
-- [ ] T002 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, modify the `handleSubmit` function and the reducer to add a unique ID to each new message (both user and bot) that is added to the `history` state.
-- [ ] T003 [US1] In `frontend/docusaurus-site/src/theme/Chatbot.js`, update the `history.map` function in the JSX to use the new unique ID as the `key` for each message element.
-- [ ] T004 [US1] Thoroughly test the chatbot to confirm that the UI updates correctly and the "something went wrong" error, followed by a delayed update, is resolved.
+- [ ] T001 [US1] **Install Dependencies:** Open a terminal in the `backend` directory and run `pip install -r requirements.txt` to ensure all dependencies are installed.
+- [ ] T002 [US1] **Run the Backend Server:** In the same terminal, run the backend server with the command `uvicorn src.main:app --reload`. Keep this server running.
+- [ ] T003 [US1] **Run the Test Script:** Open a *new* terminal in the `backend` directory. Run the test script with the command `python backend_test.py`.
+- [ ] T004 [US1] **Analyze the Output:**
+    - If the script runs successfully and you see the chatbot's answers in the output, it means the backend is working correctly, and the problem is likely still in the frontend.
+    - If the script fails, it will print an error message. This error message is the key to solving the problem. It might indicate an issue with your OpenAI API key, your Qdrant connection, or some other part of the backend code.
+- [ ] T005 [US1] **Report Findings:** Please provide the full output of the test script. This information will be crucial for the next steps in debugging.
