@@ -93,6 +93,9 @@ const Chatbot = () => {
 
   return (
     <div className={styles.chatbotContainer}>
+      <div className={styles.chatbotHeader}>
+        <p>AI Chatbot Assistant</p>
+      </div>
       <div className={styles.chatbotHistory}>
         {history.map((item) => (
           <div key={item.id} className={styles[item.sender]}>
