@@ -1,17 +1,30 @@
-description = "Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts."
+---
+id: 001
+title: Get Chatbot Working Local vs Deployed
+stage: tasks
+date: 2026-01-02
+surface: agent
+model: gemini-pro
+feature: get-chatbot-working
+branch: master
+user: haree
+command: /sp.tasks
+labels: [deployment, backend, frontend]
+links:
+  spec: "specs/get-chatbot-working/spec.md"
+  ticket: null
+  adr: null
+  pr: null
+files:
+  - "tasks.md"
+tests:
+  - none
+---
 
-prompt = """
+## Prompt
+
 ---
 description: Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts.
-handoffs: 
-  - label: Analyze For Consistency
-    agent: sp.analyze
-    prompt: Run a project analysis for consistency
-    send: true
-  - label: Implement Project
-    agent: sp.implement
-    prompt: Start the implementation in phases
-    send: true
 ---
 
 ## User Input
@@ -24,7 +37,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
-1. **Setup**: Run `.specify/scripts/powershell/check-prerequisites.ps1 -Json` from repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\\''m Groot' (or double-quote if possible: "I'm Groot").
+1. **Setup**: Run `.specify/scripts/powershell/check-prerequisites.ps1 -Json` from repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
 2. **Load design documents**: Read from FEATURE_DIR:
    - **Required**: plan.md (tech stack, libraries, structure), spec.md (user stories with priorities)
@@ -42,7 +55,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Create parallel execution examples per user story
    - Validate task completeness (each user story has all needed tasks, independently testable)
 
-4. **Generate tasks.md**: Use `.specify/templates/tasks-template.md` as structure, fill with:
+4. **Generate tasks.md**: Use `.specify.specify/templates/tasks-template.md` as structure, fill with:
    - Correct feature name from plan.md
    - Phase 1: Setup tasks (project initialization)
    - Phase 2: Foundational tasks (blocking prerequisites for all user stories)
@@ -63,7 +76,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Suggested MVP scope (typically just User Story 1)
    - Format validation: Confirm ALL tasks follow the checklist format (checkbox, ID, labels, file paths)
 
-Context for task generation: {{args}}
+Context for task generation: do we have deployed the backend on render?
 
 The tasks.md should be immediately executable - each task must be specific enough that an LLM can complete it without additional context.
 
@@ -148,7 +161,7 @@ As the main request completes, you MUST create and complete a PHR (Prompt Histor
 
 2) Generate Title and Determine Routing:
    - Generate Title: 3–7 words (slug for filename)
-   - Route is automatically determined by stage:
+   - Route is automatically determined by stage: 
      - `constitution` → `history/prompts/constitution/`
      - Feature stages → `history/prompts/<feature-name>/` (spec, plan, tasks, red, green, refactor, explainer, misc)
      - `general` → `history/prompts/general/`
@@ -164,4 +177,24 @@ As the main request completes, you MUST create and complete a PHR (Prompt Histor
 4) Validate + report
    - No unresolved placeholders; path under `history/prompts/` and matches stage; stage/title/date coherent; print ID + path + stage + title.
    - On failure: warn, don't block. Skip only for `/sp.phr`.
-"""
+
+## Response snapshot
+
+I have acknowledged your question about the deployed backend and have provided a new `tasks.md` file that gives you two clear options:
+1.  Get the chatbot working on your local machine first (recommended).
+2.  Try to connect to the existing deployed backend on Render.
+
+## Outcome
+
+- ✅ Impact: Provided the user with a clear choice and a path forward, empowering them to either fix their local setup or try the deployed version.
+- 🧪 Tests: No new tests were created.
+- 📁 Files: 1 file was created.
+- 🔁 Next prompts: The user needs to choose a path and follow the instructions in the new `tasks.md`.
+- 🧠 Reflection: It's important to give users options and to explain the trade-offs of each. The "local-first" approach is the most robust way to ensure the code is working correctly.
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: none
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): N/A

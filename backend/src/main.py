@@ -1,75 +1,24 @@
 import logging
-import os
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
-from fastapi_users import FastAPIUsers, models
-from fastapi_users.authentication import BearerTransport, AuthenticationBackend, JWTStrategy
-from fastapi_users.db import SQLAlchemyUserDatabase
-from starlette.middleware.cors import CORSMiddleware # Import CORSMiddleware
-from src.api import chat
-from src.core.database import create_tables, get_db
-from src.core.models.user import User as DBUser
-from src.api.models.user import UserRead, UserCreate, UserUpdate
-from src.services.user_service import get_user_db # Import get_user_db
+from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
+from src.api import chat
+from src.core.database import create_tables
+from src.core.users import fastapi_users
+from src.core.auth import auth_backend
+from src.core.schemas import UserRead, UserCreate
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# --- FastAPI Users Configuration ---
-SECRET = os.getenv("SECRET_KEY")
-if not SECRET:
-    raise ValueError("SECRET_KEY environment variable not set.")
-
-bearer_transport = BearerTransport(tokenUrl="auth/jwt/login")
-
-def get_jwt_strategy() -> JWTStrategy:
-    return JWTStrategy(secret=SECRET, lifetime_seconds=3600)
-
-auth_backend = AuthenticationBackend(
-    name="jwt",
-    transport=bearer_transport,
-    get_strategy=get_jwt_strategy,
-)
-
-
-fastapi_users = FastAPIUsers[DBUser, models.UUID](
-    get_user_db,
-    [auth_backend],
-)
-
-from contextlib import asynccontextmanager
-from src.services.rag_service import chatbot_service
-from src.core.qdrant import get_qdrant_client
-from openai import OpenAI
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
     print("Starting up...")
-    
-    # Check Qdrant connection
-    try:
-        qdrant_client = get_qdrant_client()
-        qdrant_client.get_collections()
-        logger.info("Successfully connected to Qdrant.")
-    except Exception as e:
-        logger.error(f"Failed to connect to Qdrant: {e}", exc_info=True)
-        # Depending on the desired behavior, you might want to raise the exception
-        # to prevent the application from starting with a broken dependency.
-        # raise e 
-
-    # Check OpenAI connection
-    try:
-        client = OpenAI()
-        client.models.list()
-        logger.info("Successfully connected to OpenAI.")
-    except Exception as e:
-        logger.error(f"Failed to connect to OpenAI. Please check your OPENAI_API_KEY: {e}", exc_info=True)
-        # raise e
-
-    chatbot_service.initialize()
+    await create_tables()
     yield
     # Shutdown
     print("Shutting down...")
@@ -84,8 +33,8 @@ app = FastAPI(
 
 # --- CORS Middleware ---
 origins = [
-    "http://localhost:3000",  # Allow your Docusaurus frontend
-    # Add other origins as needed (e.g., your Vercel deployment URL)
+    "http://localhost:3000",
+    "http://localhost:3001",
 ]
 
 app.add_middleware(
@@ -110,12 +59,6 @@ app.include_router(
     prefix="/auth",
     tags=["auth"],
 )
-app.include_router(
-    fastapi_users.get_users_router(UserRead, UserUpdate),
-    prefix="/users",
-    tags=["users"],
-)
-
 
 @app.get("/", summary="Root endpoint")
 def read_root():
@@ -125,24 +68,3 @@ def read_root():
     logger.info("Root endpoint accessed.")
     return {"Hello": "World"}
 
-@app.exception_handler(HTTPException)
-async def http_exception_handler(request, exc: HTTPException):
-    """
-    Handles HTTP exceptions and returns a JSON response.
-    """
-    logger.error(f"HTTP Exception: {exc.detail}, Status: {exc.status_code}")
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"message": exc.detail},
-    )
-
-@app.exception_handler(Exception)
-async def general_exception_handler(request, exc: Exception):
-    """
-    Handles unhandled exceptions and returns a generic internal server error.
-    """
-    logger.error(f"Unhandled Exception: {exc}", exc_info=True)
-    return JSONResponse(
-        status_code=500,
-        content={"message": "Internal server error"},
-    )

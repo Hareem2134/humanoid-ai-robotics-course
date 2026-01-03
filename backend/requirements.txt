@@ -13,3 +13,7 @@ SQLAlchemy
 pydantic[email]
 asyncpg
 requests
+passlib[bcrypt]
+python-jose
+pydantic-settings
+

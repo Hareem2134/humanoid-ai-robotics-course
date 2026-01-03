@@ -1,15 +1,10 @@
 import React from 'react';
-import { AuthProvider } from '../contexts/AuthContext';
-import { ChatbotProvider } from '../contexts/ChatbotContext';
-import Chatbot from './Chatbot';
+import { AuthProvider } from '../contexts/useAuth';
 
 export default function Root({ children }) {
   return (
     <AuthProvider>
-      <ChatbotProvider>
-        {children}
-        <Chatbot />
-      </ChatbotProvider>
+      {children}
     </AuthProvider>
   );
 }

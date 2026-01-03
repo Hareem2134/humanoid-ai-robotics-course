@@ -1,55 +1,94 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: 0.0.0 → 1.0.0
+Modified principles:
+- PRINCIPLE_1_NAME: Core Principle
+- PRINCIPLE_2_NAME: Decision Hierarchy
+- PRINCIPLE_3_NAME: Allowed Actions
+- PRINCIPLE_4_NAME: Forbidden Actions
+- PRINCIPLE_5_NAME: Coding Standards
+- PRINCIPLE_6_NAME: Error Handling
+Added sections:
+- Review Rules
+- Evolution Constraint
+Removed sections:
+- None
+Templates requiring updates:
+- ✅ .specify/templates/plan-template.md
+- ✅ .specify/templates/spec-template.md
+- ✅ .specify/templates/tasks-template.md
+Follow-up TODOs:
+- None
+-->
+
+# AI Constitution – Evolution of Todo Project
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Core Principle
+This project follows strict spec-driven, agentic development.
+No code may be written unless explicitly derived from an approved specification.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Decision Hierarchy
+1. Specification files (Spec-Kit Plus) – highest authority
+2. Constitution.md
+3. Claude.md instructions
+4. README.md
+5. AI-generated plans and tasks
+6. Code implementation
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Allowed Actions
+- Claude Code MAY:
+  - Generate Python code strictly from specs
+  - Refactor code if specs change
+  - Add docstrings and type hints
+- Gemini CLI MAY:
+  - Analyze repository structure
+  - Validate code against specs
+  - Generate task breakdowns
+- Spec-Kit Plus MAY:
+  - Define data models
+  - Define behavior, constraints, and acceptance criteria
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Forbidden Actions
+- No manual coding by humans
+- No speculative features
+- No hardcoding outside defined specs
+- No external dependencies unless explicitly specified
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Coding Standards
+- Python 3.13+
+- Type hints required
+- Single responsibility principle
+- Clear separation of:
+  - Models
+  - Services
+  - CLI interface
+- Deterministic behavior (no randomness)
 
-### [PRINCIPLE_6_NAME]
+### Error Handling
+- Fail fast
+- User-facing CLI errors must be readable
+- Internal errors must raise exceptions
 
+## Review Rules
+- Every phase must include:
+  - Spec history
+  - Plan
+  - Tasks
+  - Implementation
+- If spec conflicts exist, STOP and request clarification
 
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Evolution Constraint
+Design decisions must not block future evolution into:
+- Persistent storage
+- APIs
+- Distributed systems
+- Event-driven architecture
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This Constitution is the single source of truth for project governance. It supersedes all other practices, conventions, or verbal agreements. Amendments to this Constitution require a documented proposal, review, and an approved migration plan to ensure all dependent artifacts are updated in lockstep.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All pull requests, design reviews, and automated checks MUST verify compliance with the principles stated herein. Any deviation or increase in complexity must be explicitly justified against these principles. For runtime development guidance and specific tool usage, refer to the project's official documentation.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-02 | **Last Amended**: 2026-01-02

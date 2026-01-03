@@ -1,62 +1,68 @@
 ---
-feature: "Run the Application Correctly and Improve UI"
+feature: "Conversation History"
 version: "1.0"
 ---
 
 ## Overview
 
-Thank you for the log. The error message `[ECONNREFUSED]` is the key we needed! It tells us that your frontend (on port 3001) is trying to talk to your backend (on port 8000), but the connection is being refused.
+This document outlines the tasks required to implement a conversation history feature for the chatbot. This will allow the chatbot to remember the context of the current conversation and provide more relevant, conversational answers.
 
-This almost always means one thing: **the backend server is not running.**
+## Implementation Strategy
 
-I know you mentioned that you started it, but it's possible it crashed or was stopped. This `tasks.md` will walk you through the correct way to run both servers at the same time and then we'll polish the UI.
-
----
-
-## Phase 1: Running the Full Stack
-
-**Goal:** To get both the backend and frontend servers running correctly and communicating with each other.
-
-### Tasks
-
-- [ ] T001 [US1] **Stop Everything:** Close any running terminals to ensure you are starting fresh.
-- [ ] T002 [US1] **Start the Backend Server:**
-    -   Open a **new** terminal.
-    -   Navigate to the `backend` directory.
-    -   Run the command: `uvicorn src.main:app --reload`
-    -   You should see a message like `Uvicorn running on http://127.0.0.1:8000`.
-    -   **Leave this terminal open and running.**
-- [ ] T003 [US1] **Start the Frontend Server:**
-    -   Open a **second, new** terminal.
-    -   Navigate to the `frontend/docusaurus-site` directory.
-    -   Run the command: `npm start`
-- [ ] T004 [US1] **Test the Chatbot:**
-    -   Open your browser to the address provided by the frontend server (e.g., `http://localhost:3001`).
-    -   The "Something went wrong!" error should now be gone, and the chatbot should be fully functional.
+The implementation is divided into three phases:
+1.  **Backend - Database and Models:** We will first update the database schema to be able to store conversations and messages.
+2.  **Backend - API and Service Layer:** We will then update the backend logic to use the conversation history when generating responses.
+3.  **Frontend - State and UI:** Finally, we will update the frontend to manage the conversation state and add the necessary UI elements.
 
 ---
 
-## Phase 2: UI Polish
+## Phase 1: Backend - Database and Models
 
-**Goal:** To improve the look and feel of the chatbot UI.
+**Goal:** To create the necessary database tables to store conversation history.
+
+**Independent Test Criteria:**
+*   New `conversations` and `messages` tables should be created in the database.
 
 ### Tasks
 
-- [ ] T005 [US2] **Set Default Font Color:**
-    -   Open `frontend/docusaurus-site/src/theme/Chatbot.module.css`.
-    -   Add a `color: #000;` property to the `.chatbotHistory` class to ensure the text is black.
-- [ ] T006 [US2] **Add a Chatbot Header:**
-    -   In `frontend/docusaurus-site/src/theme/Chatbot.js`, add a header div inside the `.chatbotContainer`.
-    -   In `frontend/docusaurus-site/src/theme/Chatbot.module.css`, add styling for the new header class. For example:
-        ```css
-        .chatbotHeader {
-          background-color: #007bff;
-          color: white;
-          padding: 10px;
-          border-top-left-radius: 10px;
-          border-top-right-radius: 10px;
-          text-align: center;
-        }
-        ```
-- [ ] T007 [US2] **Improve Input Form:**
-    -   In `frontend/docusaurus-site/src/theme/Chatbot.module.css`, adjust the padding and margins for `.chatbotForm`, `.chatbotInput`, and `.chatbotSubmit` to give them a bit more space.
+- [ ] T001 [US1] In `backend/src/core/models/`, create a new file `conversation.py` to define the `Conversation` and `Message` SQLAlchemy models.
+    -   The `Conversation` model should have an `id` (UUID), a `user_id` (foreign key to the user), and a `created_at` timestamp.
+    -   The `Message` model should have an `id`, a `conversation_id` (foreign key to the conversation), a `sender` (string, e.g., 'user' or 'bot'), a `text` (the message content), and a `created_at` timestamp.
+- [ ] T002 [US1] In `backend/src/core/database.py`, modify the `create_tables` function to include the new `Conversation` and `Message` models, so that the tables are created when the application starts.
+- [ ] T003 [US1] In `backend/src/core/database.py`, create new functions `create_conversation(user_id)` and `get_conversation_history(conversation_id)`.
+
+---
+
+## Phase 2: Backend - API and Service Layer
+
+**Goal:** To update the backend logic to use the conversation history.
+
+**Independent Test Criteria:**
+*   The `/api/chat/query` endpoint should be able to take a `conversation_id` and use the history of that conversation to generate a response.
+
+### Tasks
+
+- [ ] T004 [US2] In `backend/src/api/chat.py`, update the `QueryRequest` model to include an optional `conversation_id`.
+- [ ] T005 [US2] In `backend/src/api/chat.py`, modify the `chat_query` endpoint to:
+    -   If a `conversation_id` is provided, retrieve the conversation history from the database.
+    -   If no `conversation_id` is provided, create a new conversation and return the new `conversation_id` in the response.
+- [ ] T006 [US2] In `backend/src/services/rag_service.py`, update the `get_rag_response` method to accept the conversation history as an argument.
+- [ ] T007 [US2] In `backend/src/services/rag_service.py`, modify the prompt template to include the conversation history, so that the LLM has the full context of the dialogue.
+
+---
+
+## Phase 3: Frontend - State and UI
+
+**Goal:** To update the frontend to manage conversation state and add the necessary UI elements.
+
+**Independent Test Criteria:**
+*   The chatbot should maintain the context of the conversation across multiple interactions.
+*   The user should be able to start a new chat, which clears the history.
+
+### Tasks
+
+- [ ] T008 [US3] In `frontend/docusaurus-site/src/theme/Chatbot.js`, add a new state variable for the `conversation_id`.
+- [ ] T009 [US3] In `frontend/docusaurus-site/src/theme/Chatbot.js`, when the component first loads, if there is no `conversation_id`, make a request to the backend to create a new conversation.
+- [ ] T010 [US3] In `frontend/docusaurus-site/src/theme/Chatbot.js`, include the `conversation_id` in all requests to the `/api/chat/query` endpoint.
+- [ ] T011 [US3] Add a "New Chat" button to the chatbot UI.
+- [ ] T012 [US3] When the "New Chat" button is clicked, clear the local chat history and the `conversation_id` state, and then create a new conversation with the backend.
