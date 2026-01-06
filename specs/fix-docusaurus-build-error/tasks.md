@@ -23,12 +23,13 @@ The goal of this user story is to fix the Docusaurus build error so that the web
 **Tasks:**
 
 - [x] T002 [US1] Modify `frontend/docusaurus-site/src/contexts/useAuth.js` to safely access `localStorage` only on the client-side. This will involve using `ExecutionEnvironment.canUseDOM` from Docusaurus to prevent server-side rendering errors during the build process.
-- [ ] T003 [US1] Verify the fix by running the build command `yarn build` in the `frontend/docusaurus-site` directory and ensuring it completes without errors.
+- [x] T003 [US1] Verify the fix by running the build command `yarn build` in the `frontend/docusaurus-site` directory and ensuring it completes without errors.
 
 ### Phase 4: Polish & Cross-Cutting Concerns
 
-- [ ] T004 Remove the unused `frontend/docusaurus-site/src/contexts/AuthContext.js` file to avoid confusion and code duplication.
-- [ ] T005 Push the changes to the repository and verify the deployment on Vercel.
+- [x] T004 Remove the unused `frontend/docusaurus-site/src/contexts/AuthContext.js` file to avoid confusion and code duplication.
+- [x] T005 Push the changes to the repository and verify the deployment on Vercel.
+- [x] T006 Fix the broken links reported by the Docusaurus build process. The broken links are present in multiple files and point to non-existent paths. The fix will involve updating the links to point to the correct paths.
 
 ## Dependencies
 
