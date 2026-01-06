@@ -8,6 +8,7 @@ from src.core.database import create_tables
 from src.core.users import fastapi_users
 from src.core.auth import auth_backend
 from src.core.schemas import UserRead, UserCreate
+from src.services.rag_service import chatbot_service
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -19,6 +20,7 @@ async def lifespan(app: FastAPI):
     # Startup
     print("Starting up...")
     await create_tables()
+    await chatbot_service.initialize()
     yield
     # Shutdown
     print("Shutting down...")
@@ -32,9 +34,13 @@ app = FastAPI(
 )
 
 # --- CORS Middleware ---
+# In a production environment, you should be more specific with the allowed origins.
+# For example, you would replace '*' with your actual frontend's domain.
+# For this project, we'll allow any Vercel deployment and localhost.
 origins = [
     "http://localhost:3000",
     "http://localhost:3001",
+    "https://*.vercel.app",  # Allow any subdomain under vercel.app
 ]
 
 app.add_middleware(

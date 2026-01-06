@@ -45,6 +45,7 @@ const config: Config = {
   ],
   plugins: [
     './plugins/webpack-proxy',
+    './plugins/chatbot-plugin',
   ],
 
   themeConfig: {

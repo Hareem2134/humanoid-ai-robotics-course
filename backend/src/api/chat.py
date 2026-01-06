@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from typing import List, Optional
 import uuid
@@ -7,6 +7,8 @@ import logging
 # Import your RAG service and database functions
 from ..services.rag_service import chatbot_service
 from ..core.database import create_conversation, insert_message
+from ..core.users import current_active_user
+from ..core.models.user import User
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -31,14 +33,14 @@ class QueryResponse(BaseModel):
     conversation_id: uuid.UUID
 
 @router.post("/query", response_model=QueryResponse, summary="Ask a general question about the textbook content.")
-async def chat_query(request: QueryRequest):
+async def chat_query(request: QueryRequest, user: User = Depends(current_active_user)):
     """
     Endpoint to ask a general question about the textbook content.
     The chatbot will use its knowledge base to provide an answer.
     """
-    logger.info(f"Received query: {request.query}")
+    logger.info(f"Received query: {request.query} from user: {user.email}")
     try:
-        conversation_id = request.conversation_id or create_conversation()
+        conversation_id = request.conversation_id or create_conversation(user_id=user.id)
         insert_message(conversation_id, 'user', request.query)
         
         answer, references = await chatbot_service.get_rag_response(request.query)
@@ -52,7 +54,7 @@ async def chat_query(request: QueryRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/query_selection", response_model=QueryResponse, summary="Ask a question based on user-selected text from the textbook.")
-async def chat_query_selection(request: QueryRequest):
+async def chat_query_selection(request: QueryRequest, user: User = Depends(current_active_user)):
     """
     Endpoint to ask a question based on user-selected text from the textbook.
     The selected text will be used to provide a highly context-aware answer.
@@ -60,9 +62,9 @@ async def chat_query_selection(request: QueryRequest):
     if not request.selected_text:
         raise HTTPException(status_code=400, detail="selected_text is required for /chat/query_selection")
     
-    logger.info(f"Received query with selection: {request.query}")
+    logger.info(f"Received query with selection: {request.query} from user: {user.email}")
     try:
-        conversation_id = request.conversation_id or create_conversation()
+        conversation_id = request.conversation_id or create_conversation(user_id=user.id)
         query_with_context = f"Context: {request.selected_text}\nQuestion: {request.query}"
         insert_message(conversation_id, 'user', query_with_context)
 

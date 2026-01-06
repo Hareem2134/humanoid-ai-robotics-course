@@ -28,13 +28,13 @@ async def create_tables():
     async with async_engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-async def create_conversation() -> uuid.UUID:
+async def create_conversation(user_id: int = None) -> uuid.UUID:
     """
     Creates a new conversation and returns its ID.
     """
     async with AsyncSessionLocal() as session:
         async with session.begin():
-            conversation = Conversation()
+            conversation = Conversation(user_id=user_id)
             session.add(conversation)
             await session.commit()
             await session.refresh(conversation)

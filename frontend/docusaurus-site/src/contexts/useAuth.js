@@ -1,14 +1,26 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(() => localStorage.getItem('token'));
+  const [token, setToken] = useState(() => {
+    if (ExecutionEnvironment.canUseDOM) {
+      return localStorage.getItem('token');
+    }
+    return null;
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    localStorage.setItem('token', token);
+    if (ExecutionEnvironment.canUseDOM) {
+      if (token) {
+        localStorage.setItem('token', token);
+      } else {
+        localStorage.removeItem('token');
+      }
+    }
     if (token) {
       // In a real app, you would verify the token with the backend and get user info
       // For now, we'll just simulate a user object if a token exists
