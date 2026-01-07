@@ -18,7 +18,7 @@ const config: Config = {
   organizationName: 'haree', 
   projectName: 'humanoid-ai-robotics-course', 
 
-  onBrokenLinks: 'warn', // Changed from 'throw' to 'warn'
+  onBrokenLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -85,19 +85,19 @@ const config: Config = {
           items: [
             {
               label: 'Module 1: ROS 2',
-              to: '/docs/01-ros-2/01-introduction-to-ros2',
+              to: '/docs/ros-2/introduction-to-ros2',
             },
             {
               label: 'Module 2: Digital Twins',
-              to: '/docs/02-gazebo-and-unity/01-introduction-to-simulation',
+              to: '/docs/gazebo-and-unity/introduction-to-simulation',
             },
             {
               label: 'Module 3: NVIDIA Isaac',
-              to: '/docs/03-nvidia-isaac/01-introduction-to-isaac-sim',
+              to: '/docs/nvidia-isaac/introduction-to-isaac-sim',
             },
             {
               label: 'Module 4: VLA & Humanoid Robotics',
-              to: '/docs/04-vla/01-introduction-to-vla',
+              to: '/docs/vla/introduction-to-vla',
             },
           ],
         },
@@ -127,7 +127,7 @@ const config: Config = {
             },
             {
               label: 'Glossary',
-              to: '/docs/05-glossary/01-glossary',
+              to: '/docs/glossary/glossary',
             },
           ],
         },

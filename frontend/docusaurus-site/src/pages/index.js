@@ -29,61 +29,61 @@ const modules = [
   {
     title: 'Module 1: The Robotic Nervous System (ROS 2)',
     description: 'Master ROS 2 architecture, communication patterns, and robot modeling. Learn to build distributed robotic systems using nodes, topics, services, and actions.',
-    link: '/docs/01-ros-2/01-introduction-to-ros2',
+    link: '/docs/ros-2/introduction-to-ros2',
     weeks: 'Weeks 3-5',
     icon: '/img/icons/module1.svg',
     sections: [
-      {title: 'Introduction to ROS 2', link: '/docs/01-ros-2/01-introduction-to-ros2'},
-      {title: 'ROS 2 Architecture', link: '/docs/01-ros-2/02-ros2-architecture#key-concepts'},
-      {title: 'Nodes, Topics, and Services', link: '/docs/01-ros-2/03-ros2-nodes-topics-services#creating-a-ros-2-node'},
-      {title: 'Rclpy', link: '/docs/01-ros-2/04-rclpy#key-rclpy-concepts'},
-      {title: 'URDF', link: '/docs/01-ros-2/05-urdf#key-urdf-elements'},
+      {title: 'Introduction to ROS 2', link: '/docs/ros-2/introduction-to-ros2'},
+      {title: 'ROS 2 Architecture', link: '/docs/ros-2/ros2-architecture#key-concepts'},
+      {title: 'Nodes, Topics, and Services', link: '/docs/ros-2/ros2-nodes-topics-services#creating-a-ros-2-node'},
+      {title: 'Rclpy', link: '/docs/ros-2/rclpy#key-rclpy-concepts'},
+      {title: 'URDF', link: '/docs/ros-2/urdf#key-urdf-elements'},
     ]
   },
   {
     title: 'Module 2: Digital Twins - Simulation & Sensors',
     description: 'Build digital twins for robotic systems using Gazebo and Unity. Simulate sensors, physics, and environments for testing before deploying to physical hardware.',
-    link: '/docs/02-gazebo-and-unity/01-introduction-to-simulation',
+    link: '/docs/gazebo-and-unity/introduction-to-simulation',
     weeks: 'Weeks 6-7',
     icon: '/img/icons/module2.svg',
     sections: [
-      {title: 'Introduction to Simulation', link: '/docs/02-gazebo-and-unity/01-introduction-to-simulation#why-is-simulation-important-in-robotics'},
-      {title: 'Gazebo', link: '/docs/02-gazebo-and-unity/02-gazebo#key-features-of-gazebo'},
-      {title: 'Unity', link: '/docs/02-gazebo-and-unity/03-unity#advantages-of-unity-for-robotics-simulation'},
-      {title: 'Simulating Sensors', link: '/docs/02-gazebo-and-unity/04-simulating-sensors#simulating-a-lidar'},
+      {title: 'Introduction to Simulation', link: '/docs/gazebo-and-unity/introduction-to-simulation#why-is-simulation-important-in-robotics'},
+      {title: 'Gazebo', link: '/docs/gazebo-and-unity/gazebo#key-features-of-gazebo'},
+      {title: 'Unity', link: '/docs/gazebo-and-unity/unity#advantages-of-unity-for-robotics-simulation'},
+      {title: 'Simulating Sensors', link: '/docs/gazebo-and-unity/simulating-sensors#simulating-a-lidar'},
     ]
   },
   {
     title: 'Module 3: NVIDIA Isaac - Perception & Navigation',
     description: 'Leverage NVIDIA Isaac Sim for GPU-accelerated robotics. Implement VSLAM, Nav2 navigation stacks, and reinforcement learning for autonomous behaviors.',
-    link: '/docs/03-nvidia-isaac/01-introduction-to-isaac-sim',
+    link: '/docs/nvidia-isaac/introduction-to-isaac-sim',
     weeks: 'Weeks 8-10',
     icon: '/img/icons/module3.svg',
     sections: [
-      {title: 'Introduction to Isaac Sim', link: '/docs/03-nvidia-isaac/01-introduction-to-isaac-sim#key-features-of-nvidia-isaac-sim'},
-      {title: 'Visual SLAM', link: '/docs/03-nvidia-isaac/02-visual-slam#types-of-vslam'},
-      {title: 'Nav2', link: '/docs/03-nvidia-isaac/03-nav2#key-components-of-nav2'},
-      {title: 'Reinforcement Learning', link: '/docs/03-nvidia-isaac/04-reinforcement-learning#key-concepts-in-reinforcement-learning'},
+      {title: 'Introduction to Isaac Sim', link: '/docs/nvidia-isaac/introduction-to-isaac-sim#key-features-of-nvidia-isaac-sim'},
+      {title: 'Visual SLAM', link: '/docs/nvidia-isaac/visual-slam#types-of-vslam'},
+      {title: 'Nav2', link: '/docs/nvidia-isaac/nav2#key-components-of-nav2'},
+      {title: 'Reinforcement Learning', link: '/docs/nvidia-isaac/reinforcement-learning#key-concepts-in-reinforcement-learning'},
     ]
   },
   {
     title: 'Module 4: VLA & Humanoid Robotics',
     description: 'Integrate Vision-Language-Action models with humanoid robots. Master humanoid kinematics, manipulation, and conversational AI for natural human-robot interaction.',
-    link: '/docs/04-vla/01-introduction-to-vla',
+    link: '/docs/vla/introduction-to-vla',
     weeks: 'Weeks 11-13',
     icon: '/img/icons/module4.svg',
     sections: [
-      {title: 'Introduction to VLA', link: '/docs/04-vla/01-introduction-to-vla#the-vla-triad-vision-language-and-action'},
-      {title: 'Humanoid Kinematics', link: '/docs/04-vla/02-humanoid-kinematics#forward-kinematics'},
-      {title: 'Conversational AI', link: '/docs/04-vla/03-conversational-ai#speech-to-text'},
-      {title: 'Capstone Project', link: '/docs/04-vla/04-capstone-project#project-goal'},
+      {title: 'Introduction to VLA', link: '/docs/vla/introduction-to-vla#the-vla-triad-vision-language-and-action'},
+      {title: 'Humanoid Kinematics', link: '/docs/vla/humanoid-kinematics#forward-kinematics'},
+      {title: 'Conversational AI', link: '/docs/vla/conversational-ai#speech-to-text'},
+      {title: 'Capstone Project', link: '/docs/vla/capstone-project#project-goal'},
     ]
   },
 ];
 
 function HomepageModules() {
   return (
-    <section className={styles.modules} id="modules">
+    <section className={styles.modules}>
       <div className="container">
         <div className="row">
           {modules.map((module, idx) => (
@@ -121,7 +121,7 @@ function HomepageQuickLinks() {
     },
     {
       title: 'Glossary',
-      link: '/docs/05-glossary/01-glossary#a',
+      link: '/docs/glossary/glossary#a',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -131,7 +131,7 @@ function HomepageQuickLinks() {
     },
     {
       title: 'Learning Outcomes',
-      link: '/docs/06-learning-outcomes/01-introduction',
+      link: '/docs/learning-outcomes/introduction',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -141,7 +141,7 @@ function HomepageQuickLinks() {
     },
     {
       title: 'Weekly Breakdown',
-      link: '/docs/07-weekly-breakdown/01-introduction',
+      link: '/docs/weekly-breakdown/introduction',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -153,7 +153,7 @@ function HomepageQuickLinks() {
     },
     {
       title: 'Assessments',
-      link: '/docs/08-assessments/01-introduction',
+      link: '/docs/assessments/introduction',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -166,7 +166,7 @@ function HomepageQuickLinks() {
     },
     {
       title: 'Hardware',
-      link: '/docs/09-hardware-requirements/01-introduction#1-the-digital-twin-workstation-required-per-student',
+      link: '/docs/hardware-requirements/introduction#1-the-digital-twin-workstation-required-per-student',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -203,6 +203,7 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
+        <div id="modules" />
         <HomepageModules />
         <HomepageQuickLinks />
       </main>

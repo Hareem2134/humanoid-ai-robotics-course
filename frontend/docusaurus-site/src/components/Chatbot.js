@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Chatbot.module.css'; // Assuming you create a CSS module
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import styles from './Chatbot.module.css';
 
 function Chatbot() {
+  const { siteConfig } = useDocusaurusContext();
+  const { backendUrl } = siteConfig.customFields;
+
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [answer, setAnswer] = useState('');
@@ -27,7 +31,6 @@ function Chatbot() {
 
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
-    // Clear selected text when closing chatbot
     if (isOpen) {
       setSelectedText('');
     }
@@ -35,7 +38,7 @@ function Chatbot() {
 
   const handleAskSelection = () => {
     setQuery(selectedText);
-    setIsOpen(true); // Open chatbot if not already open
+    setIsOpen(true);
   };
 
   const handleSubmit = async (e) => {
@@ -47,7 +50,9 @@ function Chatbot() {
     setAnswer('');
     setReferences([]);
 
-    const endpoint = selectedText ? '/api/v1/chat/query_selection' : '/api/v1/chat/query';
+    const endpointPath = selectedText ? '/api/chat/query_selection' : '/api/chat/query';
+    const endpoint = `${backendUrl}${endpointPath}`;
+    
     const body = selectedText
       ? { query, selected_text: selectedText }
       : { query };
@@ -60,6 +65,8 @@ function Chatbot() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          // You might need to add an Authorization header if your API is protected
+          // 'Authorization': `Bearer ${your_auth_token}`,
         },
         body: JSON.stringify(body),
       });
@@ -78,7 +85,7 @@ function Chatbot() {
       setError("Failed to get a response. Please try again.");
     } finally {
       setIsLoading(false);
-      setSelectedText(''); // Clear selected text after submitting
+      setSelectedText('');
     }
   };
 
